@@ -30,7 +30,7 @@ const UI_COPY = {
     }
   ],
   keywordsEmpty: { en: 'No keywords yet', zh: '还没有关键词' },
-  tagsEmpty: { en: 'No tags inferred yet', zh: '暂未推断出标签' },
+  tagsEmpty: { en: 'No public-safe profile cues yet', zh: '暂时还没有可公开展示的风格线索' },
   quotaEmpty: {
     en: 'No provider usage data found yet.',
     zh: '还没有发现可展示的额度数据。'
@@ -50,6 +50,26 @@ const UI_COPY = {
   useCasesEmpty: {
     title: { en: 'No patterns yet', zh: '还没有明显模式' },
     text: { en: 'A few more sessions will make the mission map more interesting.', zh: '再积累几次会话，这张任务地图会更有意思。' }
+  },
+  profileGroups: {
+    workStyle: {
+      en: 'Work style',
+      zh: '工作风格',
+      hintEn: 'How the workflow tends to show up in public-safe ways.',
+      hintZh: '用公开且自然的方式概括她的工作习惯。'
+    },
+    personality: {
+      en: 'Personality signals',
+      zh: '个性信号',
+      hintEn: 'Light-touch descriptors, not deep psychological claims.',
+      hintZh: '只是轻量特征，不做过度心理解读。'
+    },
+    lifestyle: {
+      en: 'Lifestyle rhythm',
+      zh: '生活节奏',
+      hintEn: 'Broad timing and habit cues rather than private details.',
+      hintZh: '只展示宽泛的作息与习惯线索，不触及私密细节。'
+    }
   }
 };
 
@@ -65,16 +85,21 @@ const CHIP_TRANSLATIONS = {
   'System thinker': '系统化思考',
   'Workflow designer': '流程设计者',
   'AI-native operator': 'AI 原生操作者',
-  '你在这个群里的身份是': '群聊身份设定',
-  缘缘: '缘缘',
-  风格: '风格',
-  生活版: '生活版',
-  '主要负责和我聊生活': '生活陪伴',
-  日常安排: '日常安排',
-  情绪支持: '情绪支持',
-  消费建议: '消费建议',
-  旅行: '旅行',
-  美食: '美食'
+  'Builder mindset': '构建者心态',
+  'Bilingual collaborator': '双语协作型',
+  'Structured problem-solver': '结构化解题',
+  'Workflow optimizer': '流程优化型',
+  'Digital power user': '数字工具熟手',
+  'Action-oriented': '行动导向',
+  'Curious explorer': '好奇探索型',
+  'Thoughtful organizer': '有条理',
+  'Steady improver': '持续迭代型',
+  'Flexible switcher': '切换自如',
+  'Evening active': '晚间活跃',
+  'Weekend catch-up': '周末补给型',
+  'Quick check-ins': '短频快互动',
+  'Project sprint rhythm': '项目冲刺节奏',
+  'Habit-building': '习惯养成中'
 };
 
 const CARD_TRANSLATIONS = {
@@ -104,6 +129,40 @@ const KICKERS = {
   insight: 'Coach note ｜ 教练提示'
 };
 
+const PROFILE_TAG_MAP = {
+  'Builder on GitHub': { label: 'Builder mindset', zh: '构建者心态', bucket: 'workStyle' },
+  'Bilingual workflow': { label: 'Bilingual collaborator', zh: '双语协作型', bucket: 'workStyle' },
+  'System thinker': { label: 'Structured problem-solver', zh: '结构化解题', bucket: 'personality' },
+  'Workflow designer': { label: 'Workflow optimizer', zh: '流程优化型', bucket: 'workStyle' },
+  'AI-native operator': { label: 'Digital power user', zh: '数字工具熟手', bucket: 'workStyle' },
+  'Action-oriented': { label: 'Action-oriented', zh: '行动导向', bucket: 'personality' },
+  'Curious explorer': { label: 'Curious explorer', zh: '好奇探索型', bucket: 'personality' },
+  'Thoughtful organizer': { label: 'Thoughtful organizer', zh: '有条理', bucket: 'personality' },
+  'Steady improver': { label: 'Steady improver', zh: '持续迭代型', bucket: 'personality' },
+  'Flexible switcher': { label: 'Flexible switcher', zh: '切换自如', bucket: 'personality' },
+  'Evening active': { label: 'Evening active', zh: '晚间活跃', bucket: 'lifestyle' },
+  'Weekend catch-up': { label: 'Weekend catch-up', zh: '周末补给型', bucket: 'lifestyle' },
+  'Quick check-ins': { label: 'Quick check-ins', zh: '短频快互动', bucket: 'lifestyle' },
+  'Project sprint rhythm': { label: 'Project sprint rhythm', zh: '项目冲刺节奏', bucket: 'lifestyle' },
+  'Habit-building': { label: 'Habit-building', zh: '习惯养成中', bucket: 'lifestyle' }
+};
+
+const PUBLIC_SAFE_SESSION_PATTERNS = [
+  /system\s*:/i,
+  /你在这个群里的身份是/i,
+  /主要负责/i,
+  /优先输出/i,
+  /不要/i,
+  /prompt/i,
+  /transcript/i,
+  /群聊身份设定/i,
+  /情绪支持/i,
+  /消费建议/i,
+  /旅行/i,
+  /美食/i,
+  /健康习惯/i
+];
+
 fetch('./sample-data.json')
   .then((res) => res.json())
   .then((data) => render(data || {}))
@@ -121,7 +180,7 @@ function render(data) {
   const daily = data.dailyConversations || [];
 
   document.getElementById('profileName').textContent = profile.name || 'Susie';
-  document.getElementById('primaryMode').textContent = profile.primaryMode || 'OpenClaw activity';
+  document.getElementById('primaryMode').textContent = sanitizePrimaryMode(profile.primaryMode || 'OpenClaw activity');
   document.getElementById('updatedAt').textContent = (data.meta && data.meta.updatedAt) || '—';
 
   const streak = computeStreak(daily);
@@ -140,8 +199,8 @@ function render(data) {
   renderKpis(overview);
   renderConversationChart(daily);
   renderQuotas(data.modelQuota || []);
-  renderChips('keywords', data.keywords || [], UI_COPY.keywordsEmpty, CHIP_TRANSLATIONS);
-  renderChips('tags', data.profileTags || [], UI_COPY.tagsEmpty, CHIP_TRANSLATIONS);
+  renderChips('keywords', sanitizeKeywords(data.keywords || []), UI_COPY.keywordsEmpty, CHIP_TRANSLATIONS);
+  renderProfileArea(data);
   renderUseCases(data.useCases || []);
   renderSessions(data.recentSessions || []);
   renderInsights(data.insights || []);
@@ -285,6 +344,130 @@ function renderChips(id, items, emptyText, translations = {}) {
     : `<span class="chip"><span>${escapeHtml(emptyText.en)}</span><span class="chip-sub">${escapeHtml(emptyText.zh)}</span></span>`;
 }
 
+function renderProfileArea(data) {
+  const groups = buildProfileGroups(data);
+  const order = ['workStyle', 'personality', 'lifestyle'];
+  const hasTags = order.some((key) => groups[key].items.length);
+
+  document.getElementById('profileTags').innerHTML = hasTags
+    ? order.map((key) => renderProfileGroup(key, groups[key])).join('')
+    : `<div class="profile-group profile-group-empty"><div class="empty"><strong>${escapeHtml(UI_COPY.tagsEmpty.en)}</strong><div class="copy-support">${escapeHtml(UI_COPY.tagsEmpty.zh)}</div></div></div>`;
+}
+
+function buildProfileGroups(data) {
+  const grouped = {
+    workStyle: { items: [] },
+    personality: { items: [] },
+    lifestyle: { items: [] }
+  };
+
+  const structured = data.profileTagGroups || data.profileProfile || data.profileSignals;
+  if (structured && typeof structured === 'object') {
+    addGroupedItems(grouped.workStyle.items, structured.workStyle || structured.work || []);
+    addGroupedItems(grouped.personality.items, structured.personality || structured.personalitySignals || []);
+    addGroupedItems(grouped.lifestyle.items, structured.lifestyle || structured.rhythm || []);
+  }
+
+  const flatTags = Array.isArray(data.profileTags) ? data.profileTags : [];
+  flatTags.forEach((tag) => {
+    const normalized = normalizeProfileTag(tag);
+    if (!normalized) return;
+    grouped[normalized.bucket].items.push(normalized);
+  });
+
+  const recentSessions = Array.isArray(data.recentSessions) ? data.recentSessions : [];
+  const daily = Array.isArray(data.dailyConversations) ? data.dailyConversations : [];
+  const heuristics = deriveHeuristicProfileTags(flatTags, recentSessions, daily, data.keywords || []);
+  heuristics.forEach((tag) => grouped[tag.bucket].items.push(tag));
+
+  Object.values(grouped).forEach((group) => {
+    group.items = dedupeProfileItems(group.items).slice(0, 4);
+  });
+
+  return grouped;
+}
+
+function addGroupedItems(target, items) {
+  const safeItems = Array.isArray(items) ? items : [];
+  safeItems.forEach((item) => {
+    if (!item) return;
+    if (typeof item === 'string') {
+      target.push({ label: item, zh: CHIP_TRANSLATIONS[item] || '' });
+      return;
+    }
+    target.push({
+      label: item.label || item.en || item.title || 'Profile cue',
+      zh: item.zh || item.subtitle || CHIP_TRANSLATIONS[item.label] || ''
+    });
+  });
+}
+
+function normalizeProfileTag(tag) {
+  if (!tag || typeof tag !== 'string') return null;
+  const mapped = PROFILE_TAG_MAP[tag];
+  if (mapped) return mapped;
+
+  const lower = tag.toLowerCase();
+  if (/(workflow|builder|operator|github|bilingual|designer|maker)/.test(lower)) return { label: tag, zh: CHIP_TRANSLATIONS[tag] || '', bucket: 'workStyle' };
+  if (/(thinker|curious|structured|thoughtful|creative|steady|action)/.test(lower)) return { label: tag, zh: CHIP_TRANSLATIONS[tag] || '', bucket: 'personality' };
+  if (/(evening|weekend|daily|habit|rhythm|check-in)/.test(lower)) return { label: tag, zh: CHIP_TRANSLATIONS[tag] || '', bucket: 'lifestyle' };
+  return { label: tag, zh: CHIP_TRANSLATIONS[tag] || '', bucket: 'workStyle' };
+}
+
+function deriveHeuristicProfileTags(flatTags, recentSessions, daily, keywords) {
+  const derived = [];
+  const tagText = flatTags.join(' ').toLowerCase();
+  const activeDays = daily.filter((item) => Number(item.count) > 0).length;
+  const weekendActive = daily.some((item) => Number(item.count) > 0 && /sat|sun/i.test(item.day || ''));
+  const todayBurst = Number(daily[daily.length - 1]?.count) || 0;
+  const hasGitHub = /github/.test(tagText) || recentSessions.some((item) => (item.tags || []).includes('github'));
+  const hasAutomation = /workflow|automation|operator/.test(tagText) || recentSessions.some((item) => (item.tags || []).includes('automation'));
+  const hasCoding = recentSessions.some((item) => (item.tags || []).includes('coding'));
+  const directCount = recentSessions.filter((item) => (item.tags || []).includes('direct')).length;
+  const hasBilingual = /bilingual/.test(tagText) || (keywords || []).some((item) => /[\u4e00-\u9fff]/.test(String(item))) && (keywords || []).some((item) => /[a-z]/i.test(String(item)));
+
+  if (hasGitHub || hasCoding) derived.push(PROFILE_TAG_MAP['Builder on GitHub']);
+  if (hasAutomation) derived.push(PROFILE_TAG_MAP['Workflow designer']);
+  if (hasBilingual) derived.push(PROFILE_TAG_MAP['Bilingual workflow']);
+  if (directCount >= 1) derived.push(PROFILE_TAG_MAP['Action-oriented']);
+  if (activeDays >= 3) derived.push(PROFILE_TAG_MAP['Habit-building']);
+  if (weekendActive) derived.push(PROFILE_TAG_MAP['Weekend catch-up']);
+  if (todayBurst >= 2) derived.push(PROFILE_TAG_MAP['Project sprint rhythm']);
+  if (recentSessions.length >= 3) derived.push(PROFILE_TAG_MAP['Flexible switcher']);
+
+  return dedupeProfileItems(derived);
+}
+
+function dedupeProfileItems(items) {
+  const seen = new Set();
+  return items.filter((item) => {
+    const key = `${item.bucket || ''}::${item.label}`;
+    if (!item?.label || seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
+function renderProfileGroup(key, group) {
+  const copy = UI_COPY.profileGroups[key];
+  return `
+    <section class="profile-group profile-${key}">
+      <div class="profile-group-head">
+        <div>
+          <p class="profile-group-label">${escapeHtml(copy.en)} ｜ ${escapeHtml(copy.zh)}</p>
+          <p class="profile-group-hint">${escapeHtml(copy.hintEn)}</p>
+          <p class="profile-group-hint profile-group-hint-zh">${escapeHtml(copy.hintZh)}</p>
+        </div>
+      </div>
+      <div class="profile-chip-list">
+        ${group.items.length
+          ? group.items.map((item) => `<span class="chip chip-profile"><span>${escapeHtml(item.label)}</span>${item.zh ? `<span class="chip-sub">${escapeHtml(item.zh)}</span>` : ''}</span>`).join('')
+          : `<span class="chip chip-profile chip-muted"><span>Still learning</span><span class="chip-sub">还在观察中</span></span>`}
+      </div>
+    </section>
+  `;
+}
+
 function renderUseCases(items) {
   const safeItems = Array.isArray(items) ? items : [];
   document.getElementById('useCases').innerHTML = safeItems.length
@@ -293,7 +476,7 @@ function renderUseCases(items) {
         <div class="card-kicker">${KICKERS.useCase}</div>
         <h3>${escapeHtml(item.title)}</h3>
         ${CARD_TRANSLATIONS[item.title] ? `<p class="card-support">${escapeHtml(CARD_TRANSLATIONS[item.title])}</p>` : ''}
-        <p>${escapeHtml(item.description)}</p>
+        <p>${escapeHtml(sanitizePublicText(item.description, { fallback: 'Reliable usage patterns will appear here as activity accumulates.' }))}</p>
       </article>
     `).join('')
     : `<article class="card"><div class="card-kicker">${KICKERS.useCase}</div><h3>${escapeHtml(UI_COPY.useCasesEmpty.title.en)}</h3><p class="card-support">${escapeHtml(UI_COPY.useCasesEmpty.title.zh)}</p><p>${escapeHtml(UI_COPY.useCasesEmpty.text.en)}</p><p class="card-support">${escapeHtml(UI_COPY.useCasesEmpty.text.zh)}</p></article>`;
@@ -307,17 +490,19 @@ function renderSessions(items) {
       const overview = tagCount > 0
         ? `Focus: ${tagCount} topic${tagCount === 1 ? '' : 's'} ｜ 聚焦 ${tagCount} 个主题`
         : 'Recent activity overview ｜ 最近活动概览';
+      const safeTitle = sanitizeSessionTitle(item.title);
+      const safeSummary = sanitizeSessionSummary(item.summary, item.tags);
       return `
       <article class="session">
         <div class="session-top">
           <div>
-            <strong>${escapeHtml(item.title)}</strong>
+            <strong>${escapeHtml(safeTitle)}</strong>
             ${CARD_TRANSLATIONS[item.title] ? `<div class="session-subline">${escapeHtml(CARD_TRANSLATIONS[item.title])}</div>` : ''}
           </div>
           <span class="session-time">${escapeHtml(item.time)}</span>
         </div>
-        <p class="session-summary">${escapeHtml(overview)}</p>
-        <div class="session-tags">${(item.tags || []).map((tag) => `<span class="session-tag">${escapeHtml(tag)}${TAG_TRANSLATIONS[tag] ? ` ｜ ${escapeHtml(TAG_TRANSLATIONS[tag])}` : ''}</span>`).join('')}</div>
+        <p class="session-summary">${escapeHtml(safeSummary || overview)}</p>
+        <div class="session-tags">${(sanitizeSessionTags(item.tags || [])).map((tag) => `<span class="session-tag">${escapeHtml(tag)}${TAG_TRANSLATIONS[tag] ? ` ｜ ${escapeHtml(TAG_TRANSLATIONS[tag])}` : ''}</span>`).join('')}</div>
       </article>
     `;}).join('')
     : `<article class="session"><div class="session-top"><div><strong>${escapeHtml(UI_COPY.sessionsEmpty.title.en)}</strong><div class="session-subline">${escapeHtml(UI_COPY.sessionsEmpty.title.zh)}</div></div><span class="session-time">—</span></div><p class="session-summary">${escapeHtml(UI_COPY.sessionsEmpty.text.en)}</p><div class="session-subline">${escapeHtml(UI_COPY.sessionsEmpty.text.zh)}</div></article>`;
@@ -331,7 +516,7 @@ function renderInsights(items) {
         <div class="card-kicker">${KICKERS.insight}</div>
         <strong>${escapeHtml(item.title)}</strong>
         ${CARD_TRANSLATIONS[item.title] ? `<p class="card-support">${escapeHtml(CARD_TRANSLATIONS[item.title])}</p>` : ''}
-        <p>${escapeHtml(item.description)}</p>
+        <p>${escapeHtml(sanitizePublicText(item.description, { fallback: 'Usage patterns will become clearer with a bit more local history.' }))}</p>
       </article>
     `).join('')
     : `<article class="insight"><div class="card-kicker">${KICKERS.insight}</div><strong>${escapeHtml(UI_COPY.insightsEmpty.title.en)}</strong><p class="card-support">${escapeHtml(UI_COPY.insightsEmpty.title.zh)}</p><p>${escapeHtml(UI_COPY.insightsEmpty.text.en)}</p><p class="card-support">${escapeHtml(UI_COPY.insightsEmpty.text.zh)}</p></article>`;
@@ -345,10 +530,58 @@ function renderIdeas(items) {
         <div class="card-kicker">${KICKERS.idea}</div>
         <h3>${escapeHtml(item.title)}</h3>
         ${CARD_TRANSLATIONS[item.title] ? `<p class="card-support">${escapeHtml(CARD_TRANSLATIONS[item.title])}</p>` : ''}
-        <p>${escapeHtml(item.description)}</p>
+        <p>${escapeHtml(sanitizePublicText(item.description, { fallback: 'Practical upgrade ideas will show up here.' }))}</p>
       </article>
     `).join('')
     : `<article class="card"><div class="card-kicker">${KICKERS.idea}</div><h3>${escapeHtml(UI_COPY.ideasEmpty.title.en)}</h3><p class="card-support">${escapeHtml(UI_COPY.ideasEmpty.title.zh)}</p><p>${escapeHtml(UI_COPY.ideasEmpty.text.en)}</p><p class="card-support">${escapeHtml(UI_COPY.ideasEmpty.text.zh)}</p></article>`;
+}
+
+function sanitizePrimaryMode(text) {
+  return sanitizePublicText(text, { fallback: 'OpenClaw activity snapshot' });
+}
+
+function sanitizeKeywords(items) {
+  return (Array.isArray(items) ? items : [])
+    .map((item) => String(item || '').trim())
+    .filter(Boolean)
+    .filter((item) => !PUBLIC_SAFE_SESSION_PATTERNS.some((pattern) => pattern.test(item)))
+    .slice(0, 10);
+}
+
+function sanitizeSessionTitle(title) {
+  const text = String(title || '').trim();
+  if (!text) return 'Session highlight';
+  if (PUBLIC_SAFE_SESSION_PATTERNS.some((pattern) => pattern.test(text))) return 'Profile setup conversation';
+  if (text.length > 42) return `${text.slice(0, 39)}…`;
+  return text;
+}
+
+function sanitizeSessionSummary(summary, tags = []) {
+  const text = String(summary || '').replace(/`[^`]+`/g, 'tool command').replace(/\s+/g, ' ').trim();
+  if (!text) return 'Lightweight recap of recent activity.';
+  if (PUBLIC_SAFE_SESSION_PATTERNS.some((pattern) => pattern.test(text))) {
+    if ((tags || []).includes('automation')) return 'Profile and workflow setup chat, summarized without private prompt details.';
+    if ((tags || []).includes('messaging')) return 'Lifestyle-oriented conversation setup, shown here as a broad public-safe summary.';
+    return 'A recent setup conversation, summarized at a high level for privacy.';
+  }
+  return sanitizePublicText(text, { fallback: 'Recent activity summary.' });
+}
+
+function sanitizeSessionTags(tags) {
+  const safeTags = Array.isArray(tags) ? tags : [];
+  return safeTags.filter((tag) => ['coding', 'github', 'automation', 'messaging', 'direct'].includes(tag));
+}
+
+function sanitizePublicText(text, { fallback = 'Summary unavailable.' } = {}) {
+  const clean = String(text || '')
+    .replace(/\[[^\]]*system[^\]]*\]/gi, '')
+    .replace(/`[^`]+`/g, 'tool command')
+    .replace(/\s+/g, ' ')
+    .trim();
+
+  if (!clean) return fallback;
+  if (PUBLIC_SAFE_SESSION_PATTERNS.some((pattern) => pattern.test(clean))) return fallback;
+  return clean.length > 160 ? `${clean.slice(0, 157)}…` : clean;
 }
 
 function emptyState(en, zh) {
