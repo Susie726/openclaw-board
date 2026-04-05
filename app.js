@@ -2,6 +2,108 @@ const formatNumber = (n) => new Intl.NumberFormat('en-US').format(Number.isFinit
 const escapeHtml = (value) => String(value ?? '').replace(/[&<>"']/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
 const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
 
+const UI_COPY = {
+  kpis: [
+    {
+      en: 'Today',
+      zh: '今日会话',
+      note: 'Small wins count. Show up once, and the board lights up.',
+      noteZh: '小步前进也算数。只要出现一次，整块面板就亮起来。'
+    },
+    {
+      en: 'This week',
+      zh: '本周累计',
+      note: 'A simple pulse-check for how active the workflow feels.',
+      noteZh: '快速判断这一周的工作流是否保持活跃。'
+    },
+    {
+      en: 'Active days',
+      zh: '活跃天数',
+      note: 'Consistency beats intensity. This is the habit signal.',
+      noteZh: '稳定比爆发更重要，这是习惯正在形成的信号。'
+    },
+    {
+      en: 'Topics',
+      zh: '主题数量',
+      note: 'A wider spread usually means richer, more useful AI support.',
+      noteZh: '主题越丰富，通常意味着 AI 支持也更立体。'
+    }
+  ],
+  keywordsEmpty: { en: 'No keywords yet', zh: '还没有关键词' },
+  tagsEmpty: { en: 'No tags inferred yet', zh: '暂未推断出标签' },
+  quotaEmpty: {
+    en: 'No provider usage data found yet.',
+    zh: '还没有发现可展示的额度数据。'
+  },
+  sessionsEmpty: {
+    title: { en: 'No recent sessions', zh: '最近暂无会话' },
+    text: { en: 'Transcript files were not found yet.', zh: '还没有找到可读取的转录记录。' }
+  },
+  insightsEmpty: {
+    title: { en: 'No insight yet', zh: '暂时没有洞察' },
+    text: { en: 'More local history will make the coach notes smarter.', zh: '更多本地历史会让这张教练卡更聪明。' }
+  },
+  ideasEmpty: {
+    title: { en: 'No suggestions yet', zh: '还没有建议' },
+    text: { en: 'Run the generator after more usage data exists.', zh: '等积累更多数据后再运行生成脚本。' }
+  },
+  useCasesEmpty: {
+    title: { en: 'No patterns yet', zh: '还没有明显模式' },
+    text: { en: 'A few more sessions will make the mission map more interesting.', zh: '再积累几次会话，这张任务地图会更有意思。' }
+  }
+};
+
+const CHIP_TRANSLATIONS = {
+  github: 'GitHub',
+  susie: 'Susie',
+  messaging: '消息',
+  automation: '自动化',
+  direct: '直接提问',
+  coding: '编码',
+  'Builder on GitHub': 'GitHub 构建者',
+  'Bilingual workflow': '双语工作流',
+  'System thinker': '系统化思考',
+  'Workflow designer': '流程设计者',
+  'AI-native operator': 'AI 原生操作者',
+  '你在这个群里的身份是': '群聊身份设定',
+  缘缘: '缘缘',
+  风格: '风格',
+  生活版: '生活版',
+  '主要负责和我聊生活': '生活陪伴',
+  日常安排: '日常安排',
+  情绪支持: '情绪支持',
+  消费建议: '消费建议',
+  旅行: '旅行',
+  美食: '美食'
+};
+
+const CARD_TRANSLATIONS = {
+  'GitHub shipping': 'GitHub 出货节奏',
+  'Workflow automation': '工作流自动化',
+  'Lightweight code delivery': '轻量代码交付',
+  'Weekly board refresh': '每周面板刷新',
+  'Keyword digest': '关键词摘要',
+  'Repo activity join-up': '仓库活动联动',
+  'Quota alert card': '额度提醒卡',
+  Session: '会话',
+  可以: '确认 / OK',
+  'OpenClaw is part of the weekly workflow': 'OpenClaw 已进入周常工作流'
+};
+
+const TAG_TRANSLATIONS = {
+  coding: '编码',
+  github: 'GitHub',
+  automation: '自动化',
+  messaging: '消息',
+  direct: '直接提问'
+};
+
+const KICKERS = {
+  useCase: 'Power-up ｜ 能力加成',
+  idea: 'Quest ｜ 下一关',
+  insight: 'Coach note ｜ 教练提示'
+};
+
 fetch('./sample-data.json')
   .then((res) => res.json())
   .then((data) => render(data || {}))
@@ -9,7 +111,7 @@ fetch('./sample-data.json')
     console.error('Failed to load dashboard data:', error);
     document.body.insertAdjacentHTML(
       'beforeend',
-      '<div style="position:fixed;bottom:16px;left:16px;padding:12px 14px;background:#ffffff;color:#183114;border:1px solid #dfe8c7;border-radius:16px;box-shadow:0 12px 30px rgba(101,134,61,.15)">Unable to load sample-data.json</div>'
+      '<div style="position:fixed;bottom:16px;left:16px;padding:12px 14px;background:#ffffff;color:#183114;border:1px solid #dfe8c7;border-radius:16px;box-shadow:0 12px 30px rgba(101,134,61,.15)"><strong>Unable to load sample-data.json</strong><div style="margin-top:6px;color:#64815e;font-size:13px">无法加载 sample-data.json</div></div>'
     );
   });
 
@@ -27,19 +129,19 @@ function render(data) {
   const weekCount = Number(overview.weekConversations) || 0;
 
   document.getElementById('heroMomentum').textContent = todayCount > 0
-    ? `${formatNumber(todayCount)} chats today · momentum is real`
-    : 'No chats yet today · easy win available';
-  document.getElementById('heroStatus').textContent = todayCount > 0 ? 'Streak in motion' : 'Fresh start ready';
-  document.getElementById('streakValue').textContent = streak > 0 ? `${streak}-day streak` : 'New streak';
-  document.getElementById('streakCopy').textContent = streak > 0
-    ? `You’ve shown up ${streak} day${streak === 1 ? '' : 's'} in a row. ${weekCount > 0 ? `${formatNumber(weekCount)} chats this week keeps the board warm.` : 'One more session makes the board happier.'}`
-    : 'A single focused session today is enough to kick off the next streak.';
+    ? `${formatNumber(todayCount)} chats today ｜ 今日 ${formatNumber(todayCount)} 次对话`
+    : 'No chats yet today ｜ 今天还没开始对话';
+  document.getElementById('heroStatus').textContent = todayCount > 0 ? 'Streak in motion ｜ 连胜进行中' : 'Fresh start ready ｜ 准备重新开局';
+  document.getElementById('streakValue').textContent = streak > 0 ? `${streak}-day streak ｜ ${streak} 天连胜` : 'New streak ｜ 新连胜';
+  document.getElementById('streakCopy').innerHTML = streak > 0
+    ? `${escapeHtml(`You’ve shown up ${streak} day${streak === 1 ? '' : 's'} in a row.`)}<br><span class="copy-support">${escapeHtml(weekCount > 0 ? `本周已有 ${formatNumber(weekCount)} 次对话，面板热度稳稳在线。` : '再来一次专注会话，面板会更亮。')}</span>`
+    : 'A single focused session today is enough to kick off the next streak.<br><span class="copy-support">今天只要完成一次专注对话，就能重新起势。</span>';
 
   renderKpis(overview);
   renderConversationChart(daily);
   renderQuotas(data.modelQuota || []);
-  renderChips('keywords', data.keywords || [], 'No keywords yet');
-  renderChips('tags', data.profileTags || [], 'No tags inferred yet');
+  renderChips('keywords', data.keywords || [], UI_COPY.keywordsEmpty, CHIP_TRANSLATIONS);
+  renderChips('tags', data.profileTags || [], UI_COPY.tagsEmpty, CHIP_TRANSLATIONS);
   renderUseCases(data.useCases || []);
   renderSessions(data.recentSessions || []);
   renderInsights(data.insights || []);
@@ -57,21 +159,18 @@ function computeStreak(points) {
 }
 
 function renderKpis(overview) {
-  const items = [
-    ['Today', overview.todayConversations, 'Small wins count. Show up once, and the board lights up.'],
-    ['This week', overview.weekConversations, 'A simple pulse-check for how active the workflow feels.'],
-    ['Active days', overview.activeDays, 'Consistency beats intensity. This is the habit signal.'],
-    ['Topics', overview.topicCount, 'A wider spread usually means richer, more useful AI support.']
-  ];
+  const values = [overview.todayConversations, overview.weekConversations, overview.activeDays, overview.topicCount];
 
-  document.getElementById('kpis').innerHTML = items.map(([label, value, note], index) => {
-    const numeric = Number(value) || 0;
+  document.getElementById('kpis').innerHTML = UI_COPY.kpis.map((item, index) => {
+    const numeric = Number(values[index]) || 0;
     const percent = clamp(numeric * (index === 0 ? 22 : index === 1 ? 10 : index === 2 ? 18 : 8), 10, 100);
     return `
       <article class="kpi">
-        <div class="label">${escapeHtml(label)}</div>
+        <div class="label">${escapeHtml(item.en)}</div>
+        <div class="subvalue">${escapeHtml(item.zh)}</div>
         <div class="value">${formatNumber(numeric)}</div>
-        <div class="note">${escapeHtml(note)}</div>
+        <div class="note">${escapeHtml(item.note)}</div>
+        <div class="copy-support">${escapeHtml(item.noteZh)}</div>
         <div class="spark"><span style="width:${percent}%"></span></div>
       </article>
     `;
@@ -145,7 +244,7 @@ function renderConversationChart(points) {
 function renderQuotas(items) {
   const safeItems = Array.isArray(items) ? items : [];
   if (!safeItems.length) {
-    document.getElementById('quotaList').innerHTML = '<div class="empty">No provider usage data found yet.</div>';
+    document.getElementById('quotaList').innerHTML = emptyState(UI_COPY.quotaEmpty.en, UI_COPY.quotaEmpty.zh);
     return;
   }
 
@@ -155,10 +254,10 @@ function renderQuotas(items) {
     const remaining = Number(item.remaining) || Math.max(0, total - used);
     const usedPercent = clamp(Math.round((used / total) * 100), 0, 100);
     const metaBits = [
-      `Used ${formatNumber(used)} / ${formatNumber(total)}`,
-      `Remaining ${formatNumber(remaining)}`,
-      item.resetLabel ? `Reset ${escapeHtml(item.resetLabel)}` : '',
-      item.plan ? escapeHtml(item.plan) : ''
+      `Used ${formatNumber(used)} / ${formatNumber(total)} ｜ 已用 ${formatNumber(used)} / ${formatNumber(total)}`,
+      `Remaining ${formatNumber(remaining)} ｜ 剩余 ${formatNumber(remaining)}`,
+      item.resetLabel ? `Reset ${escapeHtml(item.resetLabel)} ｜ 重置 ${escapeHtml(item.resetLabel)}` : '',
+      item.plan ? `${escapeHtml(item.plan)} ｜ 套餐` : ''
     ].filter(Boolean);
 
     return `
@@ -168,7 +267,7 @@ function renderQuotas(items) {
             <div class="quota-name">${escapeHtml(item.model || 'Usage window')}</div>
             <div class="quota-meta">${metaBits.join(' · ')}</div>
           </div>
-          <div class="quota-percent">${usedPercent}% used</div>
+          <div class="quota-percent">${usedPercent}% used ｜ 已用 ${usedPercent}%</div>
         </div>
         <div class="progress"><span style="width:${usedPercent}%"></span></div>
       </div>
@@ -176,11 +275,14 @@ function renderQuotas(items) {
   }).join('');
 }
 
-function renderChips(id, items, emptyText) {
+function renderChips(id, items, emptyText, translations = {}) {
   const safeItems = Array.isArray(items) ? items : [];
   document.getElementById(id).innerHTML = safeItems.length
-    ? safeItems.map((item) => `<span class="chip">${escapeHtml(item)}</span>`).join('')
-    : `<span class="chip">${escapeHtml(emptyText)}</span>`;
+    ? safeItems.map((item) => {
+      const zh = translations[item];
+      return `<span class="chip"><span>${escapeHtml(item)}</span>${zh ? `<span class="chip-sub">${escapeHtml(zh)}</span>` : ''}</span>`;
+    }).join('')
+    : `<span class="chip"><span>${escapeHtml(emptyText.en)}</span><span class="chip-sub">${escapeHtml(emptyText.zh)}</span></span>`;
 }
 
 function renderUseCases(items) {
@@ -188,11 +290,13 @@ function renderUseCases(items) {
   document.getElementById('useCases').innerHTML = safeItems.length
     ? safeItems.map((item) => `
       <article class="card">
+        <div class="card-kicker">${KICKERS.useCase}</div>
         <h3>${escapeHtml(item.title)}</h3>
+        ${CARD_TRANSLATIONS[item.title] ? `<p class="card-support">${escapeHtml(CARD_TRANSLATIONS[item.title])}</p>` : ''}
         <p>${escapeHtml(item.description)}</p>
       </article>
     `).join('')
-    : '<article class="card"><h3>No patterns yet</h3><p>A few more sessions will make the mission map more interesting.</p></article>';
+    : `<article class="card"><div class="card-kicker">${KICKERS.useCase}</div><h3>${escapeHtml(UI_COPY.useCasesEmpty.title.en)}</h3><p class="card-support">${escapeHtml(UI_COPY.useCasesEmpty.title.zh)}</p><p>${escapeHtml(UI_COPY.useCasesEmpty.text.en)}</p><p class="card-support">${escapeHtml(UI_COPY.useCasesEmpty.text.zh)}</p></article>`;
 }
 
 function renderSessions(items) {
@@ -201,14 +305,17 @@ function renderSessions(items) {
     ? safeItems.map((item) => `
       <article class="session">
         <div class="session-top">
-          <strong>${escapeHtml(item.title)}</strong>
+          <div>
+            <strong>${escapeHtml(item.title)}</strong>
+            ${CARD_TRANSLATIONS[item.title] ? `<div class="session-subline">${escapeHtml(CARD_TRANSLATIONS[item.title])}</div>` : ''}
+          </div>
           <span class="session-time">${escapeHtml(item.time)}</span>
         </div>
         <p class="session-summary">${escapeHtml(item.summary)}</p>
-        <div class="session-tags">${(item.tags || []).map((tag) => `<span class="session-tag">${escapeHtml(tag)}</span>`).join('')}</div>
+        <div class="session-tags">${(item.tags || []).map((tag) => `<span class="session-tag">${escapeHtml(tag)}${TAG_TRANSLATIONS[tag] ? ` ｜ ${escapeHtml(TAG_TRANSLATIONS[tag])}` : ''}</span>`).join('')}</div>
       </article>
     `).join('')
-    : '<article class="session"><div class="session-top"><strong>No recent sessions</strong><span class="session-time">—</span></div><p class="session-summary">Transcript files were not found yet.</p></article>';
+    : `<article class="session"><div class="session-top"><div><strong>${escapeHtml(UI_COPY.sessionsEmpty.title.en)}</strong><div class="session-subline">${escapeHtml(UI_COPY.sessionsEmpty.title.zh)}</div></div><span class="session-time">—</span></div><p class="session-summary">${escapeHtml(UI_COPY.sessionsEmpty.text.en)}</p><div class="session-subline">${escapeHtml(UI_COPY.sessionsEmpty.text.zh)}</div></article>`;
 }
 
 function renderInsights(items) {
@@ -216,11 +323,13 @@ function renderInsights(items) {
   document.getElementById('insights').innerHTML = safeItems.length
     ? safeItems.map((item) => `
       <article class="insight">
+        <div class="card-kicker">${KICKERS.insight}</div>
         <strong>${escapeHtml(item.title)}</strong>
+        ${CARD_TRANSLATIONS[item.title] ? `<p class="card-support">${escapeHtml(CARD_TRANSLATIONS[item.title])}</p>` : ''}
         <p>${escapeHtml(item.description)}</p>
       </article>
     `).join('')
-    : '<article class="insight"><strong>No insight yet</strong><p>More local history will make the coach notes smarter.</p></article>';
+    : `<article class="insight"><div class="card-kicker">${KICKERS.insight}</div><strong>${escapeHtml(UI_COPY.insightsEmpty.title.en)}</strong><p class="card-support">${escapeHtml(UI_COPY.insightsEmpty.title.zh)}</p><p>${escapeHtml(UI_COPY.insightsEmpty.text.en)}</p><p class="card-support">${escapeHtml(UI_COPY.insightsEmpty.text.zh)}</p></article>`;
 }
 
 function renderIdeas(items) {
@@ -228,9 +337,15 @@ function renderIdeas(items) {
   document.getElementById('automationIdeas').innerHTML = safeItems.length
     ? safeItems.map((item) => `
       <article class="card">
+        <div class="card-kicker">${KICKERS.idea}</div>
         <h3>${escapeHtml(item.title)}</h3>
+        ${CARD_TRANSLATIONS[item.title] ? `<p class="card-support">${escapeHtml(CARD_TRANSLATIONS[item.title])}</p>` : ''}
         <p>${escapeHtml(item.description)}</p>
       </article>
     `).join('')
-    : '<article class="card"><h3>No suggestions yet</h3><p>Run the generator after more usage data exists.</p></article>';
+    : `<article class="card"><div class="card-kicker">${KICKERS.idea}</div><h3>${escapeHtml(UI_COPY.ideasEmpty.title.en)}</h3><p class="card-support">${escapeHtml(UI_COPY.ideasEmpty.title.zh)}</p><p>${escapeHtml(UI_COPY.ideasEmpty.text.en)}</p><p class="card-support">${escapeHtml(UI_COPY.ideasEmpty.text.zh)}</p></article>`;
+}
+
+function emptyState(en, zh) {
+  return `<div class="empty"><strong>${escapeHtml(en)}</strong><div class="copy-support">${escapeHtml(zh)}</div></div>`;
 }

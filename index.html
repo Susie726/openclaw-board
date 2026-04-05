@@ -4,10 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>OpenClaw Board · Susie</title>
-    <meta name="description" content="A bright, motivating OpenClaw dashboard with a playful Duolingo-inspired feel." />
+    <meta
+      name="description"
+      content="A bright, motivating bilingual OpenClaw dashboard with a playful Duolingo-inspired feel."
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -23,30 +29,33 @@
             <span class="badge-dot"></span>
             <span>OpenClaw Board</span>
           </div>
-          <p class="eyebrow">Playful weekly snapshot</p>
-          <h1>Susie’s AI streak board.</h1>
+          <p class="eyebrow">Playful weekly snapshot ｜ 轻盈周报视图</p>
+          <h1>Susie’s AI streak board</h1>
+          <p class="title-support">AI 使用连胜板</p>
           <p class="lede">
-            A friendlier, more motivating dashboard for how OpenClaw gets used: momentum, sessions,
-            ideas, topics, and quota health — all from the same local data pipeline.
+            A brighter, friendlier dashboard for momentum, sessions, ideas, topics, and quota health — with elegant Chinese support built in.
+          </p>
+          <p class="lede-support">
+            用更轻快的方式看见动力值、会话节奏、灵感主题和额度状态，让本地数据也有一点游戏感。
           </p>
           <div class="hero-actions">
-            <div class="hero-chip hero-chip-success">✨ Keep the streak going</div>
+            <div class="hero-chip hero-chip-success">✨ Keep the streak going ｜ 保持连胜</div>
             <div class="hero-chip hero-chip-soft" id="heroMomentum">Loading today’s momentum…</div>
           </div>
         </div>
 
         <div class="hero-side">
           <article class="spotlight-card">
-            <p class="spotlight-label">Today’s vibe</p>
+            <p class="spotlight-label">Today’s vibe ｜ 今日状态</p>
             <h2 id="profileName">Susie</h2>
             <p class="spotlight-copy" id="primaryMode">OpenClaw activity</p>
             <div class="mini-stats">
               <div class="mini-stat">
-                <span>Updated</span>
+                <span>Updated ｜ 更新时间</span>
                 <strong id="updatedAt">—</strong>
               </div>
               <div class="mini-stat">
-                <span>Mode</span>
+                <span>Mode ｜ 节奏</span>
                 <strong id="heroStatus">Ready to sprint</strong>
               </div>
             </div>
@@ -54,7 +63,7 @@
 
           <article class="streak-card">
             <div>
-              <p class="spotlight-label">Momentum</p>
+              <p class="spotlight-label">Momentum ｜ 动力值</p>
               <h3 id="streakValue">—</h3>
             </div>
             <p id="streakCopy">Checking recent activity…</p>
@@ -68,11 +77,12 @@
         <article class="card panel chart-panel">
           <div class="panel-head">
             <div>
-              <p class="eyebrow">XP trend</p>
+              <p class="eyebrow">XP trend ｜ XP 趋势</p>
               <h2>Conversation energy</h2>
+              <p class="section-support">对话活跃度</p>
               <p class="panel-sub">A brighter view of recent activity, so progress feels visible.</p>
             </div>
-            <span class="pill">Local history</span>
+            <span class="pill">Local history ｜ 本地历史</span>
           </div>
           <div class="chart-wrap">
             <svg id="conversationChart" viewBox="0 0 760 320" preserveAspectRatio="none"></svg>
@@ -82,11 +92,12 @@
         <article class="card panel quota-panel">
           <div class="panel-head">
             <div>
-              <p class="eyebrow">Energy bars</p>
+              <p class="eyebrow">Energy bars ｜ 能量条</p>
               <h2>Quota health</h2>
+              <p class="section-support">额度状态</p>
               <p class="panel-sub">Friendly progress bars for how much runway is left.</p>
             </div>
-            <span class="pill pill-green">Looking good</span>
+            <span class="pill pill-green">Looking good ｜ 状态不错</span>
           </div>
           <div id="quotaList" class="quota-list"></div>
         </article>
@@ -96,8 +107,9 @@
         <article class="card panel">
           <div class="panel-head">
             <div>
-              <p class="eyebrow">Top topics</p>
+              <p class="eyebrow">Top topics ｜ 高频主题</p>
               <h2>What’s lighting up the board</h2>
+              <p class="section-support">最近点亮面板的话题</p>
               <p class="panel-sub">The recurring themes making this workspace feel alive.</p>
             </div>
           </div>
@@ -107,8 +119,9 @@
         <article class="card panel">
           <div class="panel-head">
             <div>
-              <p class="eyebrow">Profile perks</p>
+              <p class="eyebrow">Profile perks ｜ 风格标签</p>
               <h2>How OpenClaw describes Susie</h2>
+              <p class="section-support">OpenClaw 眼中的 Susie</p>
               <p class="panel-sub">A softer, more characterful summary of working style.</p>
             </div>
           </div>
@@ -119,8 +132,9 @@
       <section class="card panel">
         <div class="panel-head">
           <div>
-            <p class="eyebrow">Mission map</p>
+            <p class="eyebrow">Mission map ｜ 任务地图</p>
             <h2>Where OpenClaw is already helping</h2>
+            <p class="section-support">已经形成价值的使用场景</p>
             <p class="panel-sub">The strongest usage patterns, framed like reliable power-ups.</p>
           </div>
         </div>
@@ -131,8 +145,9 @@
         <article class="card panel">
           <div class="panel-head">
             <div>
-              <p class="eyebrow">Recent runs</p>
+              <p class="eyebrow">Recent runs ｜ 最近会话</p>
               <h2>Session highlights</h2>
+              <p class="section-support">重点片段</p>
               <p class="panel-sub">A cleaner scroll through the latest activity.</p>
             </div>
           </div>
@@ -142,8 +157,9 @@
         <article class="card panel">
           <div class="panel-head">
             <div>
-              <p class="eyebrow">Coach notes</p>
+              <p class="eyebrow">Coach notes ｜ 教练提示</p>
               <h2>What this pattern suggests</h2>
+              <p class="section-support">从使用轨迹里读出的信号</p>
               <p class="panel-sub">A light motivational layer on top of the raw signals.</p>
             </div>
           </div>
@@ -154,8 +170,9 @@
       <section class="card panel">
         <div class="panel-head">
           <div>
-            <p class="eyebrow">Next quests</p>
+            <p class="eyebrow">Next quests ｜ 下一步任务</p>
             <h2>Automations worth unlocking next</h2>
+            <p class="section-support">值得解锁的自动化升级</p>
             <p class="panel-sub">Practical ideas, but framed with a little more delight.</p>
           </div>
         </div>

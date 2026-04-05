@@ -28,7 +28,7 @@
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
 body {
-  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: Inter, "Noto Sans SC", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   color: var(--text);
   background:
     radial-gradient(circle at top left, rgba(88, 204, 2, 0.15), transparent 28%),
@@ -156,13 +156,36 @@ body {
   color: var(--text-strong);
 }
 
+.title-support,
+.section-support,
+.copy-support,
+.card-support,
+.session-subline,
+.chip-sub,
+.kpi .subvalue {
+  margin: 6px 0 0;
+  color: var(--soft);
+  font-family: "Noto Sans SC", Inter, sans-serif;
+}
+
+.title-support {
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.section-support {
+  font-size: 15px;
+  font-weight: 700;
+}
+
 .lede,
 .panel-sub,
 .card p,
 .session-summary,
 .insight p,
 .quota-meta,
-.kpi .note {
+.kpi .note,
+.lede-support {
   color: var(--muted);
 }
 
@@ -171,6 +194,13 @@ body {
   margin: 18px 0 0;
   font-size: 17px;
   line-height: 1.8;
+}
+
+.lede-support {
+  max-width: 700px;
+  margin: 8px 0 0;
+  font-size: 15px;
+  line-height: 1.75;
 }
 
 .hero-actions {
@@ -183,7 +213,8 @@ body {
 .hero-chip,
 .pill,
 .session-tag,
-.chip {
+.chip,
+.card-kicker {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -288,7 +319,8 @@ body {
 }
 
 .streak-card .spotlight-label,
-.streak-card p { color: rgba(255,255,255,0.88); }
+.streak-card p,
+.streak-card .copy-support { color: rgba(255,255,255,0.88); }
 .streak-card h3 { font-size: 36px; color: white; }
 .streak-card p { margin: 12px 0 0; line-height: 1.6; }
 
@@ -324,6 +356,11 @@ body {
   margin-top: 14px;
   font-size: 44px;
   font-weight: 900;
+}
+
+.kpi .subvalue {
+  font-size: 14px;
+  font-weight: 700;
 }
 
 .kpi .note {
@@ -446,11 +483,18 @@ body {
 }
 
 .chip {
+  flex-direction: column;
+  align-items: flex-start;
   padding: 11px 15px;
   font-size: 14px;
   color: var(--text-strong);
   background: #f5f9ee;
   border: 1px solid #dbe7c0;
+}
+
+.chip-sub {
+  font-size: 12px;
+  font-weight: 700;
 }
 
 .chips-keywords .chip:nth-child(4n + 1) { background: #edf9df; }
@@ -492,8 +536,17 @@ body {
 }
 
 .card-grid .card > * { position: relative; z-index: 1; }
-.card-grid .card h3 { margin: 0 0 10px; font-size: 20px; letter-spacing: -0.03em; color: var(--text-strong); }
+.card-kicker {
+  margin-bottom: 12px;
+  padding: 7px 10px;
+  font-size: 11px;
+  color: var(--green-dark);
+  background: #edf9df;
+  border: 1px solid #d8ebbb;
+}
+.card-grid .card h3 { margin: 0 0 8px; font-size: 20px; letter-spacing: -0.03em; color: var(--text-strong); }
 .card-grid .card p { margin: 0; line-height: 1.75; font-size: 14px; }
+.card-support { font-size: 13px; line-height: 1.65; }
 
 .session,
 .insight {
@@ -528,6 +581,11 @@ body {
   line-height: 1.7;
 }
 
+.session-subline {
+  font-size: 13px;
+  line-height: 1.65;
+}
+
 .session-tags {
   display: flex;
   flex-wrap: wrap;
@@ -559,6 +617,16 @@ body {
   background: #f9fbf2;
   border: 1px dashed #dbe6c0;
   color: var(--muted);
+}
+
+.empty strong {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--text-strong);
+}
+
+.empty .copy-support {
+  font-size: 13px;
 }
 
 @media (max-width: 1100px) {
