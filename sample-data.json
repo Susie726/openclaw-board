@@ -1,132 +1,342 @@
 {
   "meta": {
-    "updatedAt": "2026-04-05",
-    "source": "sample dashboard data"
+    "updatedAt": "2026-04-05 21:10",
+    "source": "generated from local OpenClaw CLI status, sessions, and transcript files",
+    "generatedBy": "scripts/generate_sample_data.py"
   },
   "profile": {
     "name": "Susie",
-    "primaryMode": "AI Product Strategy × Agent Workflows"
+    "primaryMode": "Local OpenClaw activity snapshot"
   },
   "overview": {
-    "todayConversations": 19,
-    "weekConversations": 106,
-    "activeDays": 24,
-    "topicCount": 18
+    "todayConversations": 3,
+    "weekConversations": 5,
+    "activeDays": 4,
+    "topicCount": 12
   },
   "dailyConversations": [
-    { "day": "Mon", "count": 12 },
-    { "day": "Tue", "count": 15 },
-    { "day": "Wed", "count": 9 },
-    { "day": "Thu", "count": 18 },
-    { "day": "Fri", "count": 14 },
-    { "day": "Sat", "count": 11 },
-    { "day": "Sun", "count": 19 }
+    {
+      "day": "Mon",
+      "date": "2026-03-30",
+      "count": 0
+    },
+    {
+      "day": "Tue",
+      "date": "2026-03-31",
+      "count": 0
+    },
+    {
+      "day": "Wed",
+      "date": "2026-04-01",
+      "count": 0
+    },
+    {
+      "day": "Thu",
+      "date": "2026-04-02",
+      "count": 0
+    },
+    {
+      "day": "Fri",
+      "date": "2026-04-03",
+      "count": 0
+    },
+    {
+      "day": "Sat",
+      "date": "2026-04-04",
+      "count": 2
+    },
+    {
+      "day": "Sun",
+      "date": "2026-04-05",
+      "count": 3
+    }
+  ],
+  "dailyConversations30": [
+    {
+      "day": "03-07",
+      "date": "2026-03-07",
+      "count": 0
+    },
+    {
+      "day": "03-08",
+      "date": "2026-03-08",
+      "count": 0
+    },
+    {
+      "day": "03-09",
+      "date": "2026-03-09",
+      "count": 0
+    },
+    {
+      "day": "03-10",
+      "date": "2026-03-10",
+      "count": 0
+    },
+    {
+      "day": "03-11",
+      "date": "2026-03-11",
+      "count": 0
+    },
+    {
+      "day": "03-12",
+      "date": "2026-03-12",
+      "count": 1
+    },
+    {
+      "day": "03-13",
+      "date": "2026-03-13",
+      "count": 0
+    },
+    {
+      "day": "03-14",
+      "date": "2026-03-14",
+      "count": 0
+    },
+    {
+      "day": "03-15",
+      "date": "2026-03-15",
+      "count": 0
+    },
+    {
+      "day": "03-16",
+      "date": "2026-03-16",
+      "count": 0
+    },
+    {
+      "day": "03-17",
+      "date": "2026-03-17",
+      "count": 0
+    },
+    {
+      "day": "03-18",
+      "date": "2026-03-18",
+      "count": 0
+    },
+    {
+      "day": "03-19",
+      "date": "2026-03-19",
+      "count": 0
+    },
+    {
+      "day": "03-20",
+      "date": "2026-03-20",
+      "count": 0
+    },
+    {
+      "day": "03-21",
+      "date": "2026-03-21",
+      "count": 0
+    },
+    {
+      "day": "03-22",
+      "date": "2026-03-22",
+      "count": 1
+    },
+    {
+      "day": "03-23",
+      "date": "2026-03-23",
+      "count": 0
+    },
+    {
+      "day": "03-24",
+      "date": "2026-03-24",
+      "count": 0
+    },
+    {
+      "day": "03-25",
+      "date": "2026-03-25",
+      "count": 0
+    },
+    {
+      "day": "03-26",
+      "date": "2026-03-26",
+      "count": 0
+    },
+    {
+      "day": "03-27",
+      "date": "2026-03-27",
+      "count": 0
+    },
+    {
+      "day": "03-28",
+      "date": "2026-03-28",
+      "count": 0
+    },
+    {
+      "day": "03-29",
+      "date": "2026-03-29",
+      "count": 0
+    },
+    {
+      "day": "03-30",
+      "date": "2026-03-30",
+      "count": 0
+    },
+    {
+      "day": "03-31",
+      "date": "2026-03-31",
+      "count": 0
+    },
+    {
+      "day": "04-01",
+      "date": "2026-04-01",
+      "count": 0
+    },
+    {
+      "day": "04-02",
+      "date": "2026-04-02",
+      "count": 0
+    },
+    {
+      "day": "04-03",
+      "date": "2026-04-03",
+      "count": 0
+    },
+    {
+      "day": "04-04",
+      "date": "2026-04-04",
+      "count": 2
+    },
+    {
+      "day": "04-05",
+      "date": "2026-04-05",
+      "count": 3
+    }
   ],
   "modelQuota": [
-    { "model": "GPT-5.4", "used": 62, "total": 100, "remaining": 38 },
-    { "model": "Codex", "used": 41, "total": 80, "remaining": 39 },
-    { "model": "Claude Code", "used": 23, "total": 60, "remaining": 37 }
+    {
+      "model": "Codex · 5h",
+      "provider": "openai-codex",
+      "windowLabel": "5h",
+      "used": 15,
+      "total": 100,
+      "remaining": 85,
+      "usedPercent": 15,
+      "resetAt": 1775410593000,
+      "resetLabel": "04-06 01:36",
+      "plan": "plus ($0.00)"
+    },
+    {
+      "model": "Codex · Week",
+      "provider": "openai-codex",
+      "windowLabel": "Week",
+      "used": 6,
+      "total": 100,
+      "remaining": 94,
+      "usedPercent": 6,
+      "resetAt": 1775910162000,
+      "resetLabel": "04-11 20:22",
+      "plan": "plus ($0.00)"
+    }
   ],
   "keywords": [
-    "OpenClaw",
-    "GitHub",
-    "Agent workflow",
-    "AI product",
-    "RAG",
-    "Prompt engineering",
-    "Dashboard",
-    "tmux",
-    "automation",
-    "portfolio",
-    "interview strategy",
-    "evaluation"
+    "github",
+    "susie",
+    "你在这个群里的身份是",
+    "缘缘",
+    "风格",
+    "生活版",
+    "主要负责和我聊生活",
+    "日常安排",
+    "情绪支持",
+    "消费建议",
+    "旅行",
+    "美食"
   ],
   "profileTags": [
-    "AI Product Manager",
+    "Builder on GitHub",
+    "Bilingual workflow",
     "System thinker",
     "Workflow designer",
-    "Bilingual",
-    "Taste-driven",
-    "Automation curious",
-    "Multi-agent explorer",
-    "Clarity first"
+    "AI-native operator"
   ],
   "useCases": [
     {
-      "title": "Repository grooming",
-      "description": "把零散灵感、脚本和工具仓库整理成更清晰、可复用、可展示的结构。"
+      "title": "GitHub shipping",
+      "description": "A meaningful slice of the conversation history revolves around repos, commits, and publishing work."
     },
     {
-      "title": "AI workflow design",
-      "description": "把想法变成更像产品的工作流，包括 agent 编排、提示词结构和使用方式。"
+      "title": "Workflow automation",
+      "description": "OpenClaw is being used to orchestrate scripts, agent flows, and repeatable personal ops."
     },
     {
-      "title": "Personal operating layer",
-      "description": "把 OpenClaw 当成个人 AI 操作层：聊天、记忆、整理、执行、发布。"
-    },
-    {
-      "title": "Career storytelling",
-      "description": "根据记忆和经历，整理成更适合公开表达的 GitHub、面试、项目叙事。"
-    },
-    {
-      "title": "Tool exploration",
-      "description": "边用边试新的 agent 工具、tmux 编排方式、看板形式和自动化小系统。"
-    },
-    {
-      "title": "Tasteful documentation",
-      "description": "不仅关心功能，也关心呈现方式是否克制、清晰、有美感。"
+      "title": "Lightweight code delivery",
+      "description": "Sessions often turn directly into scripts, frontend tweaks, and practical implementation work."
     }
   ],
   "recentSessions": [
     {
-      "title": "Repackaged tmux orchestrator",
-      "time": "Today · 20:41",
-      "summary": "把上游仓库整理成更好记、可复用的 agent-dispatch-tmux，并推送到 GitHub。",
-      "tags": ["GitHub", "tmux", "agent orchestration"]
+      "title": "Session",
+      "time": "Today · 21:02",
+      "summary": "我准备直接做了： - 把 `openclaw-board` 拉到工作区 - 加一个数据生成脚本，真实读取本机 OpenClaw session / status / transcript - 再加一个每周日自动更新并 push 的脚本/说明 先开工，做完我会把真实接上的那部分告诉你。",
+      "tags": [
+        "coding",
+        "github"
+      ]
     },
     {
-      "title": "Refined profile README",
-      "time": "Today · 20:50",
-      "summary": "将 GitHub 主页升级为更有人味、简约、带视觉层次的个人展示页。",
-      "tags": ["branding", "README", "design"]
+      "title": "可以",
+      "time": "Today · 12:17",
+      "summary": "可以",
+      "tags": [
+        "github"
+      ]
     },
     {
-      "title": "Dashboard concept",
-      "time": "Today · 20:55",
-      "summary": "定义 OpenClaw Board：展示对话量、关键词、模型使用和用户标签。",
-      "tags": ["dashboard", "analytics", "product thinking"]
+      "title": "你在这个群里的身份是“缘缘·AI 产品经理版”",
+      "time": "Yesterday · 21:52",
+      "summary": "你在这个群里的身份是“缘缘·AI 产品经理版”。 你要像一个非常资深的 AI 产品经理，擅长：需求分析、用户场景拆解、竞品研究、产品定位、功能优先级、PRD、增长、商业化、Agent 产品设计。 风格：专业、直接、结构化。 说话时优先输出：问题定义、目标用户、关键指标、方案对比、风险点、下一步。 不要空谈概念，要...",
+      "tags": [
+        "automation"
+      ]
+    },
+    {
+      "title": "你在这个群里的身份是“缘缘·生活版”",
+      "time": "Yesterday · 21:51",
+      "summary": "你在这个群里的身份是“缘缘·生活版”。 主要负责和我聊生活、日常安排、情绪支持、消费建议、旅行、美食、健康习惯、效率习惯。 风格：轻松、自然、有人味，但不要太啰嗦。 优先给直接可执行的建议，不要过度说教。 不要默认切到职业/技术视角，除非我主动问。 [System: The content may include...",
+      "tags": [
+        "messaging"
+      ]
+    },
+    {
+      "title": "我怎么把你拉进群",
+      "time": "Mar 22 · 15:28",
+      "summary": "最简单的是看你现在这个微信接入方式支不支持“群会话接管”。",
+      "tags": [
+        "direct"
+      ]
+    },
+    {
+      "title": "openclaw channels add",
+      "time": "Mar 12 · 09:32",
+      "summary": "`openclaw channels add` is the command for adding a chat channel account to the Gateway.",
+      "tags": [
+        "direct"
+      ]
     }
   ],
   "insights": [
     {
-      "title": "OpenClaw is being used as a personal AI layer",
-      "description": "它不只是聊天工具，更像一个连接 GitHub、记忆、执行和个人表达的中控层。"
-    },
-    {
-      "title": "Conversation themes cluster around building systems",
-      "description": "对话不是零散问答，而是围绕 workflow、自动化、仓库整理和产品表达展开。"
-    },
-    {
-      "title": "Taste matters as much as functionality",
-      "description": "使用模式显示 Susie 在意的不只是能不能做，还在意呈现是否克制、清楚、好看。"
+      "title": "OpenClaw is part of the weekly workflow",
+      "description": "Active on 4 of the last 30 days, which looks more like a habit than occasional experimentation."
     }
   ],
   "automationIdeas": [
     {
-      "title": "Nightly memory digest",
-      "description": "每天夜里自动汇总当日对话、关键词和重要决策，沉淀成记忆卡片。"
+      "title": "Weekly board refresh",
+      "description": "Regenerate the dashboard data, review the diff, then commit and push a fresh snapshot each week."
     },
     {
-      "title": "Weekly model report",
-      "description": "按周汇总模型调用量、剩余额度、最常用模型和典型使用场景。"
+      "title": "Keyword digest",
+      "description": "Store weekly top keywords and topic clusters so the board can show trend changes instead of just a latest snapshot."
     },
     {
-      "title": "Topic heatmap",
-      "description": "将过去 30 天的话题做成热力图，帮助观察兴趣和项目重心变化。"
+      "title": "Repo activity join-up",
+      "description": "Pair session summaries with git commits to show which conversations actually turned into shipped changes."
     },
     {
-      "title": "GitHub publishing assistant",
-      "description": "把成熟的聊天成果自动整理成 README、项目页或发布说明。"
+      "title": "Quota alert card",
+      "description": "Highlight provider windows that are close to reset or close to exhaustion instead of only showing raw percentages."
     }
   ]
 }
