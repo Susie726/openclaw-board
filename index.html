@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OpenClaw Board · Susie</title>
+    <meta name="description" content="A premium minimal dashboard for understanding how Susie uses OpenClaw." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="noise"></div>
+    <main class="shell">
+      <section class="hero glass">
+        <div>
+          <p class="eyebrow">OpenClaw Board</p>
+          <h1>How Susie works with AI, <br />in one quiet dashboard.</h1>
+          <p class="lede">
+            一个偏 Apple 风格的 OpenClaw 看板：看使用方式、对话趋势、关键词、模型额度、人格标签，
+            以及下一步还能自动化什么。
+          </p>
+        </div>
+        <div class="hero-meta">
+          <div class="meta-card">
+            <span>Profile</span>
+            <strong id="profileName">Susie</strong>
+          </div>
+          <div class="meta-card">
+            <span>Primary mode</span>
+            <strong id="primaryMode">AI Product Thinking</strong>
+          </div>
+          <div class="meta-card">
+            <span>Updated</span>
+            <strong id="updatedAt">—</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid kpis" id="kpis"></section>
+
+      <section class="grid two-up">
+        <article class="panel chart-panel glass">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Conversation Trend</p>
+              <h2>Daily conversation volume</h2>
+            </div>
+            <span class="pill">Last 7 days</span>
+          </div>
+          <div class="chart-wrap">
+            <svg id="conversationChart" viewBox="0 0 700 260" preserveAspectRatio="none"></svg>
+          </div>
+        </article>
+
+        <article class="panel glass">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Model Usage</p>
+              <h2>Usage & remaining quota</h2>
+            </div>
+            <span class="pill">Estimated</span>
+          </div>
+          <div id="quotaList" class="quota-list"></div>
+        </article>
+      </section>
+
+      <section class="grid two-up">
+        <article class="panel glass">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Keywords</p>
+              <h2>What the conversations are about</h2>
+            </div>
+          </div>
+          <div id="keywords" class="chips"></div>
+        </article>
+
+        <article class="panel glass">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Profile Tags</p>
+              <h2>How OpenClaw might describe Susie</h2>
+            </div>
+          </div>
+          <div id="tags" class="chips chips-soft"></div>
+        </article>
+      </section>
+
+      <section class="panel glass">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">How Susie Uses OpenClaw</p>
+            <h2>Usage patterns</h2>
+          </div>
+        </div>
+        <div id="useCases" class="card-grid"></div>
+      </section>
+
+      <section class="grid two-up">
+        <article class="panel glass">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Recent Sessions</p>
+              <h2>Recent activity snapshot</h2>
+            </div>
+          </div>
+          <div id="sessions" class="session-list"></div>
+        </article>
+
+        <article class="panel glass">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Interpretation</p>
+              <h2>What this pattern suggests</h2>
+            </div>
+          </div>
+          <div id="insights" class="insight-list"></div>
+        </article>
+      </section>
+
+      <section class="panel glass">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">Ideas</p>
+            <h2>Next automations worth building</h2>
+          </div>
+        </div>
+        <div id="automationIdeas" class="card-grid compact"></div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

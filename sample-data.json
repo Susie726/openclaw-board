@@ -1,0 +1,132 @@
+{
+  "meta": {
+    "updatedAt": "2026-04-05",
+    "source": "sample dashboard data"
+  },
+  "profile": {
+    "name": "Susie",
+    "primaryMode": "AI Product Strategy × Agent Workflows"
+  },
+  "overview": {
+    "todayConversations": 19,
+    "weekConversations": 106,
+    "activeDays": 24,
+    "topicCount": 18
+  },
+  "dailyConversations": [
+    { "day": "Mon", "count": 12 },
+    { "day": "Tue", "count": 15 },
+    { "day": "Wed", "count": 9 },
+    { "day": "Thu", "count": 18 },
+    { "day": "Fri", "count": 14 },
+    { "day": "Sat", "count": 11 },
+    { "day": "Sun", "count": 19 }
+  ],
+  "modelQuota": [
+    { "model": "GPT-5.4", "used": 62, "total": 100, "remaining": 38 },
+    { "model": "Codex", "used": 41, "total": 80, "remaining": 39 },
+    { "model": "Claude Code", "used": 23, "total": 60, "remaining": 37 }
+  ],
+  "keywords": [
+    "OpenClaw",
+    "GitHub",
+    "Agent workflow",
+    "AI product",
+    "RAG",
+    "Prompt engineering",
+    "Dashboard",
+    "tmux",
+    "automation",
+    "portfolio",
+    "interview strategy",
+    "evaluation"
+  ],
+  "profileTags": [
+    "AI Product Manager",
+    "System thinker",
+    "Workflow designer",
+    "Bilingual",
+    "Taste-driven",
+    "Automation curious",
+    "Multi-agent explorer",
+    "Clarity first"
+  ],
+  "useCases": [
+    {
+      "title": "Repository grooming",
+      "description": "把零散灵感、脚本和工具仓库整理成更清晰、可复用、可展示的结构。"
+    },
+    {
+      "title": "AI workflow design",
+      "description": "把想法变成更像产品的工作流，包括 agent 编排、提示词结构和使用方式。"
+    },
+    {
+      "title": "Personal operating layer",
+      "description": "把 OpenClaw 当成个人 AI 操作层：聊天、记忆、整理、执行、发布。"
+    },
+    {
+      "title": "Career storytelling",
+      "description": "根据记忆和经历，整理成更适合公开表达的 GitHub、面试、项目叙事。"
+    },
+    {
+      "title": "Tool exploration",
+      "description": "边用边试新的 agent 工具、tmux 编排方式、看板形式和自动化小系统。"
+    },
+    {
+      "title": "Tasteful documentation",
+      "description": "不仅关心功能，也关心呈现方式是否克制、清晰、有美感。"
+    }
+  ],
+  "recentSessions": [
+    {
+      "title": "Repackaged tmux orchestrator",
+      "time": "Today · 20:41",
+      "summary": "把上游仓库整理成更好记、可复用的 agent-dispatch-tmux，并推送到 GitHub。",
+      "tags": ["GitHub", "tmux", "agent orchestration"]
+    },
+    {
+      "title": "Refined profile README",
+      "time": "Today · 20:50",
+      "summary": "将 GitHub 主页升级为更有人味、简约、带视觉层次的个人展示页。",
+      "tags": ["branding", "README", "design"]
+    },
+    {
+      "title": "Dashboard concept",
+      "time": "Today · 20:55",
+      "summary": "定义 OpenClaw Board：展示对话量、关键词、模型使用和用户标签。",
+      "tags": ["dashboard", "analytics", "product thinking"]
+    }
+  ],
+  "insights": [
+    {
+      "title": "OpenClaw is being used as a personal AI layer",
+      "description": "它不只是聊天工具，更像一个连接 GitHub、记忆、执行和个人表达的中控层。"
+    },
+    {
+      "title": "Conversation themes cluster around building systems",
+      "description": "对话不是零散问答，而是围绕 workflow、自动化、仓库整理和产品表达展开。"
+    },
+    {
+      "title": "Taste matters as much as functionality",
+      "description": "使用模式显示 Susie 在意的不只是能不能做，还在意呈现是否克制、清楚、好看。"
+    }
+  ],
+  "automationIdeas": [
+    {
+      "title": "Nightly memory digest",
+      "description": "每天夜里自动汇总当日对话、关键词和重要决策，沉淀成记忆卡片。"
+    },
+    {
+      "title": "Weekly model report",
+      "description": "按周汇总模型调用量、剩余额度、最常用模型和典型使用场景。"
+    },
+    {
+      "title": "Topic heatmap",
+      "description": "将过去 30 天的话题做成热力图，帮助观察兴趣和项目重心变化。"
+    },
+    {
+      "title": "GitHub publishing assistant",
+      "description": "把成熟的聊天成果自动整理成 README、项目页或发布说明。"
+    }
+  ]
+}
