@@ -55,20 +55,20 @@ const UI_COPY = {
     workStyle: {
       en: 'Work style',
       zh: '工作风格',
-      hintEn: 'How the workflow tends to show up in public-safe ways.',
-      hintZh: '用公开且自然的方式概括她的工作习惯。'
+      hintEn: 'High-level patterns in how work gets done.',
+      hintZh: '从整体使用行为中提炼出的工作方式。'
     },
     personality: {
       en: 'Personality signals',
       zh: '个性信号',
-      hintEn: 'Light-touch descriptors, not deep psychological claims.',
-      hintZh: '只是轻量特征，不做过度心理解读。'
+      hintEn: 'Gentle descriptors based on consistent behavior.',
+      hintZh: '基于稳定行为的轻量特征描述。'
     },
     lifestyle: {
       en: 'Lifestyle rhythm',
       zh: '生活节奏',
-      hintEn: 'Broad timing and habit cues rather than private details.',
-      hintZh: '只展示宽泛的作息与习惯线索，不触及私密细节。'
+      hintEn: 'Broad rhythm and habit cues.',
+      hintZh: '宽泛的节奏与习惯线索。'
     }
   }
 };
@@ -202,7 +202,6 @@ function render(data) {
   renderChips('keywords', sanitizeKeywords(data.keywords || []), UI_COPY.keywordsEmpty, CHIP_TRANSLATIONS);
   renderProfileArea(data);
   renderUseCases(data.useCases || []);
-  renderSessions(data.recentSessions || []);
   renderInsights(data.insights || []);
   renderIdeas(data.automationIdeas || []);
 }
@@ -462,7 +461,7 @@ function renderProfileGroup(key, group) {
       <div class="profile-chip-list">
         ${group.items.length
           ? group.items.map((item) => `<span class="chip chip-profile"><span>${escapeHtml(item.label)}</span>${item.zh ? `<span class="chip-sub">${escapeHtml(item.zh)}</span>` : ''}</span>`).join('')
-          : `<span class="chip chip-profile chip-muted"><span>Still learning</span><span class="chip-sub">还在观察中</span></span>`}
+          : `<span class="chip chip-profile chip-muted"><span>Observed pattern</span><span class="chip-sub">已观察到的模式</span></span>`}
       </div>
     </section>
   `;
@@ -480,32 +479,6 @@ function renderUseCases(items) {
       </article>
     `).join('')
     : `<article class="card"><div class="card-kicker">${KICKERS.useCase}</div><h3>${escapeHtml(UI_COPY.useCasesEmpty.title.en)}</h3><p class="card-support">${escapeHtml(UI_COPY.useCasesEmpty.title.zh)}</p><p>${escapeHtml(UI_COPY.useCasesEmpty.text.en)}</p><p class="card-support">${escapeHtml(UI_COPY.useCasesEmpty.text.zh)}</p></article>`;
-}
-
-function renderSessions(items) {
-  const safeItems = Array.isArray(items) ? items : [];
-  document.getElementById('sessions').innerHTML = safeItems.length
-    ? safeItems.map((item) => {
-      const tagCount = Array.isArray(item.tags) ? item.tags.length : 0;
-      const overview = tagCount > 0
-        ? `Focus: ${tagCount} topic${tagCount === 1 ? '' : 's'} ｜ 聚焦 ${tagCount} 个主题`
-        : 'Recent activity overview ｜ 最近活动概览';
-      const safeTitle = sanitizeSessionTitle(item.title);
-      const safeSummary = sanitizeSessionSummary(item.summary, item.tags);
-      return `
-      <article class="session">
-        <div class="session-top">
-          <div>
-            <strong>${escapeHtml(safeTitle)}</strong>
-            ${CARD_TRANSLATIONS[item.title] ? `<div class="session-subline">${escapeHtml(CARD_TRANSLATIONS[item.title])}</div>` : ''}
-          </div>
-          <span class="session-time">${escapeHtml(item.time)}</span>
-        </div>
-        <p class="session-summary">${escapeHtml(safeSummary || overview)}</p>
-        <div class="session-tags">${(sanitizeSessionTags(item.tags || [])).map((tag) => `<span class="session-tag">${escapeHtml(tag)}${TAG_TRANSLATIONS[tag] ? ` ｜ ${escapeHtml(TAG_TRANSLATIONS[tag])}` : ''}</span>`).join('')}</div>
-      </article>
-    `;}).join('')
-    : `<article class="session"><div class="session-top"><div><strong>${escapeHtml(UI_COPY.sessionsEmpty.title.en)}</strong><div class="session-subline">${escapeHtml(UI_COPY.sessionsEmpty.title.zh)}</div></div><span class="session-time">—</span></div><p class="session-summary">${escapeHtml(UI_COPY.sessionsEmpty.text.en)}</p><div class="session-subline">${escapeHtml(UI_COPY.sessionsEmpty.text.zh)}</div></article>`;
 }
 
 function renderInsights(items) {
