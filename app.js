@@ -37,7 +37,7 @@ const UI_COPY = {
   },
   sessionsEmpty: {
     title: { en: 'No recent sessions', zh: '最近暂无会话' },
-    text: { en: 'Transcript files were not found yet.', zh: '还没有找到可读取的转录记录。' }
+    text: { en: 'Session overviews will appear here once local history is available.', zh: '本地历史积累后，这里会显示会话概览。' }
   },
   insightsEmpty: {
     title: { en: 'No insight yet', zh: '暂时没有洞察' },
@@ -302,7 +302,12 @@ function renderUseCases(items) {
 function renderSessions(items) {
   const safeItems = Array.isArray(items) ? items : [];
   document.getElementById('sessions').innerHTML = safeItems.length
-    ? safeItems.map((item) => `
+    ? safeItems.map((item) => {
+      const tagCount = Array.isArray(item.tags) ? item.tags.length : 0;
+      const overview = tagCount > 0
+        ? `Focus: ${tagCount} topic${tagCount === 1 ? '' : 's'} ｜ 聚焦 ${tagCount} 个主题`
+        : 'Recent activity overview ｜ 最近活动概览';
+      return `
       <article class="session">
         <div class="session-top">
           <div>
@@ -311,10 +316,10 @@ function renderSessions(items) {
           </div>
           <span class="session-time">${escapeHtml(item.time)}</span>
         </div>
-        <p class="session-summary">${escapeHtml(item.summary)}</p>
+        <p class="session-summary">${escapeHtml(overview)}</p>
         <div class="session-tags">${(item.tags || []).map((tag) => `<span class="session-tag">${escapeHtml(tag)}${TAG_TRANSLATIONS[tag] ? ` ｜ ${escapeHtml(TAG_TRANSLATIONS[tag])}` : ''}</span>`).join('')}</div>
       </article>
-    `).join('')
+    `;}).join('')
     : `<article class="session"><div class="session-top"><div><strong>${escapeHtml(UI_COPY.sessionsEmpty.title.en)}</strong><div class="session-subline">${escapeHtml(UI_COPY.sessionsEmpty.title.zh)}</div></div><span class="session-time">—</span></div><p class="session-summary">${escapeHtml(UI_COPY.sessionsEmpty.text.en)}</p><div class="session-subline">${escapeHtml(UI_COPY.sessionsEmpty.text.zh)}</div></article>`;
 }
 
