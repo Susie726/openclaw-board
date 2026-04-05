@@ -163,16 +163,48 @@ const PUBLIC_SAFE_SESSION_PATTERNS = [
   /健康习惯/i
 ];
 
-fetch('./sample-data.json')
-  .then((res) => res.json())
-  .then((data) => render(data || {}))
-  .catch((error) => {
-    console.error('Failed to load dashboard data:', error);
-    document.body.insertAdjacentHTML(
-      'beforeend',
-      '<div style="position:fixed;bottom:16px;left:16px;padding:12px 14px;background:#ffffff;color:#183114;border:1px solid #dfe8c7;border-radius:16px;box-shadow:0 12px 30px rgba(101,134,61,.15)"><strong>Unable to load sample-data.json</strong><div style="margin-top:6px;color:#64815e;font-size:13px">无法加载 sample-data.json</div></div>'
-    );
+loadDashboardData();
+
+async function loadDashboardData() {
+  const candidates = [
+    './sample-data.json',
+    `./sample-data.json?t=${Date.now()}`
+  ];
+
+  for (const url of candidates) {
+    try {
+      const res = await fetch(url, { cache: 'no-store' });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      render(data || {});
+      return;
+    } catch (error) {
+      console.warn('Dashboard data load failed for', url, error);
+    }
+  }
+
+  renderFallbackState();
+}
+
+function renderFallbackState() {
+  render({
+    meta: { updatedAt: '—' },
+    profile: { name: 'Susie', primaryMode: 'OpenClaw Board' },
+    overview: { todayConversations: 0, weekConversations: 0, activeDays: 0, topicCount: 0 },
+    dailyConversations: [],
+    modelQuota: [],
+    keywords: [],
+    profileTags: [],
+    useCases: [],
+    insights: [
+      {
+        title: 'Data temporarily unavailable',
+        description: 'The board is loading, but the latest data snapshot is not available yet. Please refresh in a moment.'
+      }
+    ],
+    automationIdeas: []
   });
+}
 
 function render(data) {
   const profile = data.profile || {};
