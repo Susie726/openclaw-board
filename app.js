@@ -55,20 +55,20 @@ const UI_COPY = {
     workStyle: {
       en: 'Work style',
       zh: '工作风格',
-      hintEn: 'High-level patterns in how work gets done.',
-      hintZh: '从整体使用行为中提炼出的工作方式。'
+      hintEn: 'How work usually gets done.',
+      hintZh: '平时做事的方式。'
     },
     personality: {
       en: 'Personality signals',
       zh: '个性信号',
-      hintEn: 'Gentle descriptors based on consistent behavior.',
-      hintZh: '基于稳定行为的轻量特征描述。'
+      hintEn: 'Traits that show up often.',
+      hintZh: '经常出现的特征。'
     },
     lifestyle: {
       en: 'Lifestyle rhythm',
       zh: '生活节奏',
-      hintEn: 'Broad rhythm and habit cues.',
-      hintZh: '宽泛的节奏与习惯线索。'
+      hintEn: 'Typical rhythm and habits.',
+      hintZh: '常见的节奏与习惯。'
     }
   }
 };
