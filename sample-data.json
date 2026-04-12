@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-04-05 21:10",
+    "updatedAt": "2026-04-12 21:00",
     "source": "generated from local OpenClaw CLI status, sessions, and transcript files",
     "generatedBy": "scripts/generate_sample_data.py"
   },
@@ -10,83 +10,48 @@
   },
   "overview": {
     "todayConversations": 3,
-    "weekConversations": 5,
+    "weekConversations": 3,
     "activeDays": 4,
     "topicCount": 12
   },
   "dailyConversations": [
     {
       "day": "Mon",
-      "date": "2026-03-30",
+      "date": "2026-04-06",
       "count": 0
     },
     {
       "day": "Tue",
-      "date": "2026-03-31",
+      "date": "2026-04-07",
       "count": 0
     },
     {
       "day": "Wed",
-      "date": "2026-04-01",
+      "date": "2026-04-08",
       "count": 0
     },
     {
       "day": "Thu",
-      "date": "2026-04-02",
+      "date": "2026-04-09",
       "count": 0
     },
     {
       "day": "Fri",
-      "date": "2026-04-03",
+      "date": "2026-04-10",
       "count": 0
     },
     {
       "day": "Sat",
-      "date": "2026-04-04",
-      "count": 2
+      "date": "2026-04-11",
+      "count": 0
     },
     {
       "day": "Sun",
-      "date": "2026-04-05",
+      "date": "2026-04-12",
       "count": 3
     }
   ],
   "dailyConversations30": [
-    {
-      "day": "03-07",
-      "date": "2026-03-07",
-      "count": 0
-    },
-    {
-      "day": "03-08",
-      "date": "2026-03-08",
-      "count": 0
-    },
-    {
-      "day": "03-09",
-      "date": "2026-03-09",
-      "count": 0
-    },
-    {
-      "day": "03-10",
-      "date": "2026-03-10",
-      "count": 0
-    },
-    {
-      "day": "03-11",
-      "date": "2026-03-11",
-      "count": 0
-    },
-    {
-      "day": "03-12",
-      "date": "2026-03-12",
-      "count": 1
-    },
-    {
-      "day": "03-13",
-      "date": "2026-03-13",
-      "count": 0
-    },
     {
       "day": "03-14",
       "date": "2026-03-14",
@@ -195,11 +160,46 @@
     {
       "day": "04-04",
       "date": "2026-04-04",
-      "count": 2
+      "count": 1
     },
     {
       "day": "04-05",
       "date": "2026-04-05",
+      "count": 2
+    },
+    {
+      "day": "04-06",
+      "date": "2026-04-06",
+      "count": 0
+    },
+    {
+      "day": "04-07",
+      "date": "2026-04-07",
+      "count": 0
+    },
+    {
+      "day": "04-08",
+      "date": "2026-04-08",
+      "count": 0
+    },
+    {
+      "day": "04-09",
+      "date": "2026-04-09",
+      "count": 0
+    },
+    {
+      "day": "04-10",
+      "date": "2026-04-10",
+      "count": 0
+    },
+    {
+      "day": "04-11",
+      "date": "2026-04-11",
+      "count": 0
+    },
+    {
+      "day": "04-12",
+      "date": "2026-04-12",
       "count": 3
     }
   ],
@@ -208,47 +208,46 @@
       "model": "Codex · 5h",
       "provider": "openai-codex",
       "windowLabel": "5h",
-      "used": 15,
+      "used": 9,
       "total": 100,
-      "remaining": 85,
-      "usedPercent": 15,
-      "resetAt": 1775410593000,
-      "resetLabel": "04-06 01:36",
+      "remaining": 91,
+      "usedPercent": 9,
+      "resetAt": 1776012090000,
+      "resetLabel": "04-13 00:41",
       "plan": "plus ($0.00)"
     },
     {
       "model": "Codex · Week",
       "provider": "openai-codex",
       "windowLabel": "Week",
-      "used": 6,
+      "used": 5,
       "total": 100,
-      "remaining": 94,
-      "usedPercent": 6,
-      "resetAt": 1775910162000,
-      "resetLabel": "04-11 20:22",
+      "remaining": 95,
+      "usedPercent": 5,
+      "resetAt": 1776580876000,
+      "resetLabel": "04-19 14:41",
       "plan": "plus ($0.00)"
     }
   ],
   "keywords": [
+    "internal",
+    "task",
+    "subagent",
+    "result",
+    "data",
     "github",
-    "susie",
-    "你在这个群里的身份是",
-    "缘缘",
-    "风格",
-    "生活版",
-    "主要负责和我聊生活",
-    "日常安排",
-    "情绪支持",
-    "消费建议",
-    "旅行",
-    "美食"
+    "completed",
+    "context",
+    "untrusted",
+    "added",
+    "code",
+    "runtime"
   ],
   "profileTags": [
+    "Automation-minded",
     "Builder on GitHub",
-    "Bilingual workflow",
-    "System thinker",
-    "Workflow designer",
-    "AI-native operator"
+    "Hands-on coder",
+    "Bilingual workflow"
   ],
   "useCases": [
     {
@@ -262,56 +261,72 @@
     {
       "title": "Lightweight code delivery",
       "description": "Sessions often turn directly into scripts, frontend tweaks, and practical implementation work."
+    },
+    {
+      "title": "Usage analytics",
+      "description": "The dashboard itself reflects an interest in measuring conversation volume, trends, and quota health."
+    },
+    {
+      "title": "Tasteful UI iteration",
+      "description": "There is a recurring preference for clean presentation, visual restraint, and polished framing."
+    },
+    {
+      "title": "Documentation as product",
+      "description": "README and narrative polish show up as a real part of the workflow, not an afterthought."
     }
   ],
   "recentSessions": [
     {
-      "title": "Session",
-      "time": "Today · 21:02",
-      "summary": "我准备直接做了： - 把 `openclaw-board` 拉到工作区 - 加一个数据生成脚本，真实读取本机 OpenClaw session / status / transcript - 再加一个每周日自动更新并 push 的脚本/说明 先开工，做完我会把真实接上的那部分告诉你。",
+      "title": "[cron:48ef5aea-75c8-459c-9593-2b1f4d7a616a openclaw...",
+      "time": "Today · 21:00",
+      "summary": "[cron:48ef5aea-75c8-459c-9593-2b1f4d7a616a openclaw-board-weekly-refresh] In /Users/susie/.openclaw/workspace-tech/openclaw-board, run bash scripts/refresh_a...",
+      "tags": [
+        "github",
+        "automation"
+      ]
+    },
+    {
+      "title": "Hermes Agent 和 OpenClaw有什么区别",
+      "time": "Today · 19:43",
+      "summary": "Hermes Agent 和 OpenClaw有什么区别？是不是比后者更牛",
       "tags": [
         "coding",
-        "github"
+        "github",
+        "automation"
+      ]
+    },
+    {
+      "title": "只回复 OK",
+      "time": "Today · 14:51",
+      "summary": "只回复 OK",
+      "tags": [
+        "direct"
+      ]
+    },
+    {
+      "title": "修掉",
+      "time": "Apr 5 · 21:51",
+      "summary": "修掉",
+      "tags": [
+        "docs",
+        "design",
+        "coding"
       ]
     },
     {
       "title": "可以",
-      "time": "Today · 12:17",
+      "time": "Apr 5 · 12:17",
       "summary": "可以",
       "tags": [
         "github"
       ]
     },
     {
-      "title": "你在这个群里的身份是“缘缘·AI 产品经理版”",
-      "time": "Yesterday · 21:52",
-      "summary": "你在这个群里的身份是“缘缘·AI 产品经理版”。 你要像一个非常资深的 AI 产品经理，擅长：需求分析、用户场景拆解、竞品研究、产品定位、功能优先级、PRD、增长、商业化、Agent 产品设计。 风格：专业、直接、结构化。 说话时优先输出：问题定义、目标用户、关键指标、方案对比、风险点、下一步。 不要空谈概念，要...",
-      "tags": [
-        "automation"
-      ]
-    },
-    {
       "title": "你在这个群里的身份是“缘缘·生活版”",
-      "time": "Yesterday · 21:51",
+      "time": "Apr 4 · 21:51",
       "summary": "你在这个群里的身份是“缘缘·生活版”。 主要负责和我聊生活、日常安排、情绪支持、消费建议、旅行、美食、健康习惯、效率习惯。 风格：轻松、自然、有人味，但不要太啰嗦。 优先给直接可执行的建议，不要过度说教。 不要默认切到职业/技术视角，除非我主动问。 [System: The content may include...",
       "tags": [
         "messaging"
-      ]
-    },
-    {
-      "title": "我怎么把你拉进群",
-      "time": "Mar 22 · 15:28",
-      "summary": "最简单的是看你现在这个微信接入方式支不支持“群会话接管”。",
-      "tags": [
-        "direct"
-      ]
-    },
-    {
-      "title": "openclaw channels add",
-      "time": "Mar 12 · 09:32",
-      "summary": "`openclaw channels add` is the command for adding a chat channel account to the Gateway.",
-      "tags": [
-        "direct"
       ]
     }
   ],
@@ -319,6 +334,10 @@
     {
       "title": "OpenClaw is part of the weekly workflow",
       "description": "Active on 4 of the last 30 days, which looks more like a habit than occasional experimentation."
+    },
+    {
+      "title": "Conversations skew toward building",
+      "description": "Recent sessions are less about one-off Q&A and more about turning ideas into scripts, repos, dashboards, and automations."
     }
   ],
   "automationIdeas": [
