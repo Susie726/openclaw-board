@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-04-12 21:00",
+    "updatedAt": "2026-04-19 21:04",
     "source": "generated from local OpenClaw CLI status, sessions, and transcript files",
     "generatedBy": "scripts/generate_sample_data.py"
   },
@@ -9,84 +9,49 @@
     "primaryMode": "Local OpenClaw activity snapshot"
   },
   "overview": {
-    "todayConversations": 3,
-    "weekConversations": 3,
-    "activeDays": 4,
+    "todayConversations": 2,
+    "weekConversations": 2,
+    "activeDays": 5,
     "topicCount": 12
   },
   "dailyConversations": [
     {
       "day": "Mon",
-      "date": "2026-04-06",
+      "date": "2026-04-13",
       "count": 0
     },
     {
       "day": "Tue",
-      "date": "2026-04-07",
+      "date": "2026-04-14",
       "count": 0
     },
     {
       "day": "Wed",
-      "date": "2026-04-08",
+      "date": "2026-04-15",
       "count": 0
     },
     {
       "day": "Thu",
-      "date": "2026-04-09",
+      "date": "2026-04-16",
       "count": 0
     },
     {
       "day": "Fri",
-      "date": "2026-04-10",
+      "date": "2026-04-17",
       "count": 0
     },
     {
       "day": "Sat",
-      "date": "2026-04-11",
+      "date": "2026-04-18",
       "count": 0
     },
     {
       "day": "Sun",
-      "date": "2026-04-12",
-      "count": 3
+      "date": "2026-04-19",
+      "count": 2
     }
   ],
   "dailyConversations30": [
-    {
-      "day": "03-14",
-      "date": "2026-03-14",
-      "count": 0
-    },
-    {
-      "day": "03-15",
-      "date": "2026-03-15",
-      "count": 0
-    },
-    {
-      "day": "03-16",
-      "date": "2026-03-16",
-      "count": 0
-    },
-    {
-      "day": "03-17",
-      "date": "2026-03-17",
-      "count": 0
-    },
-    {
-      "day": "03-18",
-      "date": "2026-03-18",
-      "count": 0
-    },
-    {
-      "day": "03-19",
-      "date": "2026-03-19",
-      "count": 0
-    },
-    {
-      "day": "03-20",
-      "date": "2026-03-20",
-      "count": 0
-    },
     {
       "day": "03-21",
       "date": "2026-03-21",
@@ -200,7 +165,42 @@
     {
       "day": "04-12",
       "date": "2026-04-12",
-      "count": 3
+      "count": 2
+    },
+    {
+      "day": "04-13",
+      "date": "2026-04-13",
+      "count": 0
+    },
+    {
+      "day": "04-14",
+      "date": "2026-04-14",
+      "count": 0
+    },
+    {
+      "day": "04-15",
+      "date": "2026-04-15",
+      "count": 0
+    },
+    {
+      "day": "04-16",
+      "date": "2026-04-16",
+      "count": 0
+    },
+    {
+      "day": "04-17",
+      "date": "2026-04-17",
+      "count": 0
+    },
+    {
+      "day": "04-18",
+      "date": "2026-04-18",
+      "count": 0
+    },
+    {
+      "day": "04-19",
+      "date": "2026-04-19",
+      "count": 2
     }
   ],
   "modelQuota": [
@@ -208,24 +208,24 @@
       "model": "Codex · 5h",
       "provider": "openai-codex",
       "windowLabel": "5h",
-      "used": 9,
+      "used": 3,
       "total": 100,
-      "remaining": 91,
-      "usedPercent": 9,
-      "resetAt": 1776012090000,
-      "resetLabel": "04-13 00:41",
+      "remaining": 97,
+      "usedPercent": 3,
+      "resetAt": 1776606733000,
+      "resetLabel": "04-19 21:52",
       "plan": "plus ($0.00)"
     },
     {
       "model": "Codex · Week",
       "provider": "openai-codex",
       "windowLabel": "Week",
-      "used": 5,
+      "used": 0,
       "total": 100,
-      "remaining": 95,
-      "usedPercent": 5,
-      "resetAt": 1776580876000,
-      "resetLabel": "04-19 14:41",
+      "remaining": 100,
+      "usedPercent": 0,
+      "resetAt": 1777193533000,
+      "resetLabel": "04-26 16:52",
       "plan": "plus ($0.00)"
     }
   ],
@@ -235,19 +235,21 @@
     "subagent",
     "result",
     "data",
-    "github",
-    "completed",
     "context",
     "untrusted",
+    "github",
+    "completed",
     "added",
-    "code",
+    "commit",
     "runtime"
   ],
   "profileTags": [
     "Automation-minded",
     "Builder on GitHub",
-    "Hands-on coder",
-    "Bilingual workflow"
+    "Bilingual workflow",
+    "System thinker",
+    "Workflow designer",
+    "AI-native operator"
   ],
   "useCases": [
     {
@@ -278,26 +280,33 @@
   "recentSessions": [
     {
       "title": "[cron:48ef5aea-75c8-459c-9593-2b1f4d7a616a openclaw...",
-      "time": "Today · 21:00",
+      "time": "Today · 21:04",
       "summary": "[cron:48ef5aea-75c8-459c-9593-2b1f4d7a616a openclaw-board-weekly-refresh] In /Users/susie/.openclaw/workspace-tech/openclaw-board, run bash scripts/refresh_a...",
       "tags": [
-        "github",
-        "automation"
+        "automation",
+        "github"
       ]
     },
     {
-      "title": "Hermes Agent 和 OpenClaw有什么区别",
-      "time": "Today · 19:43",
-      "summary": "Hermes Agent 和 OpenClaw有什么区别？是不是比后者更牛",
+      "title": "把我的 openclaw 看板地址发给我",
+      "time": "Today · 17:03",
+      "summary": "看板地址是： http://127.0.0.1:18789/ 这是本机地址，只能在运行 OpenClaw 的那台机器上打开。🦞",
       "tags": [
-        "coding",
-        "github",
-        "automation"
+        "group"
+      ]
+    },
+    {
+      "title": "[cron:48ef5aea-75c8-459c-9593-2b1f4d7a616a openclaw...",
+      "time": "Apr 12 · 21:00",
+      "summary": "Done — refresh completed successfully.",
+      "tags": [
+        "automation",
+        "github"
       ]
     },
     {
       "title": "只回复 OK",
-      "time": "Today · 14:51",
+      "time": "Apr 12 · 14:51",
       "summary": "只回复 OK",
       "tags": [
         "direct"
@@ -308,9 +317,9 @@
       "time": "Apr 5 · 21:51",
       "summary": "修掉",
       "tags": [
-        "docs",
         "design",
-        "coding"
+        "coding",
+        "docs"
       ]
     },
     {
@@ -320,20 +329,12 @@
       "tags": [
         "github"
       ]
-    },
-    {
-      "title": "你在这个群里的身份是“缘缘·生活版”",
-      "time": "Apr 4 · 21:51",
-      "summary": "你在这个群里的身份是“缘缘·生活版”。 主要负责和我聊生活、日常安排、情绪支持、消费建议、旅行、美食、健康习惯、效率习惯。 风格：轻松、自然、有人味，但不要太啰嗦。 优先给直接可执行的建议，不要过度说教。 不要默认切到职业/技术视角，除非我主动问。 [System: The content may include...",
-      "tags": [
-        "messaging"
-      ]
     }
   ],
   "insights": [
     {
       "title": "OpenClaw is part of the weekly workflow",
-      "description": "Active on 4 of the last 30 days, which looks more like a habit than occasional experimentation."
+      "description": "Active on 5 of the last 30 days, which looks more like a habit than occasional experimentation."
     },
     {
       "title": "Conversations skew toward building",
