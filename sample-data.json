@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-04-19 21:04",
+    "updatedAt": "2026-04-26 21:00",
     "source": "generated from local OpenClaw CLI status, sessions, and transcript files",
     "generatedBy": "scripts/generate_sample_data.py"
   },
@@ -10,83 +10,48 @@
   },
   "overview": {
     "todayConversations": 2,
-    "weekConversations": 2,
+    "weekConversations": 4,
     "activeDays": 5,
     "topicCount": 12
   },
   "dailyConversations": [
     {
       "day": "Mon",
-      "date": "2026-04-13",
+      "date": "2026-04-20",
       "count": 0
     },
     {
       "day": "Tue",
-      "date": "2026-04-14",
+      "date": "2026-04-21",
       "count": 0
     },
     {
       "day": "Wed",
-      "date": "2026-04-15",
+      "date": "2026-04-22",
       "count": 0
     },
     {
       "day": "Thu",
-      "date": "2026-04-16",
+      "date": "2026-04-23",
       "count": 0
     },
     {
       "day": "Fri",
-      "date": "2026-04-17",
-      "count": 0
+      "date": "2026-04-24",
+      "count": 2
     },
     {
       "day": "Sat",
-      "date": "2026-04-18",
+      "date": "2026-04-25",
       "count": 0
     },
     {
       "day": "Sun",
-      "date": "2026-04-19",
+      "date": "2026-04-26",
       "count": 2
     }
   ],
   "dailyConversations30": [
-    {
-      "day": "03-21",
-      "date": "2026-03-21",
-      "count": 0
-    },
-    {
-      "day": "03-22",
-      "date": "2026-03-22",
-      "count": 1
-    },
-    {
-      "day": "03-23",
-      "date": "2026-03-23",
-      "count": 0
-    },
-    {
-      "day": "03-24",
-      "date": "2026-03-24",
-      "count": 0
-    },
-    {
-      "day": "03-25",
-      "date": "2026-03-25",
-      "count": 0
-    },
-    {
-      "day": "03-26",
-      "date": "2026-03-26",
-      "count": 0
-    },
-    {
-      "day": "03-27",
-      "date": "2026-03-27",
-      "count": 0
-    },
     {
       "day": "03-28",
       "date": "2026-03-28",
@@ -130,7 +95,7 @@
     {
       "day": "04-05",
       "date": "2026-04-05",
-      "count": 2
+      "count": 0
     },
     {
       "day": "04-06",
@@ -165,7 +130,7 @@
     {
       "day": "04-12",
       "date": "2026-04-12",
-      "count": 2
+      "count": 1
     },
     {
       "day": "04-13",
@@ -201,6 +166,41 @@
       "day": "04-19",
       "date": "2026-04-19",
       "count": 2
+    },
+    {
+      "day": "04-20",
+      "date": "2026-04-20",
+      "count": 0
+    },
+    {
+      "day": "04-21",
+      "date": "2026-04-21",
+      "count": 0
+    },
+    {
+      "day": "04-22",
+      "date": "2026-04-22",
+      "count": 0
+    },
+    {
+      "day": "04-23",
+      "date": "2026-04-23",
+      "count": 0
+    },
+    {
+      "day": "04-24",
+      "date": "2026-04-24",
+      "count": 2
+    },
+    {
+      "day": "04-25",
+      "date": "2026-04-25",
+      "count": 0
+    },
+    {
+      "day": "04-26",
+      "date": "2026-04-26",
+      "count": 2
     }
   ],
   "modelQuota": [
@@ -212,36 +212,36 @@
       "total": 100,
       "remaining": 97,
       "usedPercent": 3,
-      "resetAt": 1776606733000,
-      "resetLabel": "04-19 21:52",
+      "resetAt": 1777224301000,
+      "resetLabel": "04-27 01:25",
       "plan": "plus ($0.00)"
     },
     {
       "model": "Codex · Week",
       "provider": "openai-codex",
       "windowLabel": "Week",
-      "used": 0,
+      "used": 3,
       "total": 100,
-      "remaining": 100,
-      "usedPercent": 0,
-      "resetAt": 1777193533000,
-      "resetLabel": "04-26 16:52",
+      "remaining": 97,
+      "usedPercent": 3,
+      "resetAt": 1777446974000,
+      "resetLabel": "04-29 15:16",
       "plan": "plus ($0.00)"
     }
   ],
   "keywords": [
-    "internal",
-    "task",
-    "subagent",
-    "result",
-    "data",
-    "context",
-    "untrusted",
-    "github",
-    "completed",
-    "added",
+    "直筒裤",
     "commit",
-    "runtime"
+    "users",
+    "skill",
+    "cron",
+    "susie",
+    "workspace-tech",
+    "openclaw-board",
+    "run",
+    "bash",
+    "scripts",
+    "refresh"
   ],
   "profileTags": [
     "Automation-minded",
@@ -263,71 +263,58 @@
     {
       "title": "Lightweight code delivery",
       "description": "Sessions often turn directly into scripts, frontend tweaks, and practical implementation work."
-    },
-    {
-      "title": "Usage analytics",
-      "description": "The dashboard itself reflects an interest in measuring conversation volume, trends, and quota health."
-    },
-    {
-      "title": "Tasteful UI iteration",
-      "description": "There is a recurring preference for clean presentation, visual restraint, and polished framing."
-    },
-    {
-      "title": "Documentation as product",
-      "description": "README and narrative polish show up as a real part of the workflow, not an afterthought."
     }
   ],
   "recentSessions": [
     {
       "title": "[cron:48ef5aea-75c8-459c-9593-2b1f4d7a616a openclaw...",
-      "time": "Today · 21:04",
+      "time": "Today · 21:00",
       "summary": "[cron:48ef5aea-75c8-459c-9593-2b1f4d7a616a openclaw-board-weekly-refresh] In /Users/susie/.openclaw/workspace-tech/openclaw-board, run bash scripts/refresh_a...",
       "tags": [
-        "automation",
+        "github",
+        "automation"
+      ]
+    },
+    {
+      "title": "可以",
+      "time": "Today · 20:30",
+      "summary": "可以",
+      "tags": [
+        "coding",
         "github"
       ]
     },
     {
-      "title": "把我的 openclaw 看板地址发给我",
-      "time": "Today · 17:03",
-      "summary": "看板地址是： http://127.0.0.1:18789/ 这是本机地址，只能在运行 OpenClaw 的那台机器上打开。🦞",
+      "title": "海外 VPS有便宜的吗",
+      "time": "Apr 24 · 20:47",
+      "summary": "有，而且**便宜到能拿来常驻跑 OpenClaw**。",
       "tags": [
-        "group"
-      ]
-    },
-    {
-      "title": "[cron:48ef5aea-75c8-459c-9593-2b1f4d7a616a openclaw...",
-      "time": "Apr 12 · 21:00",
-      "summary": "Done — refresh completed successfully.",
-      "tags": [
-        "automation",
-        "github"
+        "session"
       ]
     },
     {
       "title": "只回复 OK",
-      "time": "Apr 12 · 14:51",
+      "time": "Apr 24 · 20:42",
       "summary": "只回复 OK",
       "tags": [
         "direct"
       ]
     },
     {
-      "title": "修掉",
-      "time": "Apr 5 · 21:51",
-      "summary": "修掉",
+      "title": "[cron:48ef5aea-75c8-459c-9593-2b1f4d7a616a openclaw...",
+      "time": "Apr 19 · 21:04",
+      "summary": "Weekly refresh finished: data changed, the script updated `sample-data.json`, committed `chore: refresh dashboard data (2026-04-19)`, and pushed to `main` successfully.",
       "tags": [
-        "design",
-        "coding",
-        "docs"
+        "github",
+        "automation"
       ]
     },
     {
-      "title": "可以",
-      "time": "Apr 5 · 12:17",
-      "summary": "可以",
+      "title": "把我的 openclaw 看板地址发给我",
+      "time": "Apr 19 · 17:03",
+      "summary": "看板地址是： http://127.0.0.1:18789/ 这是本机地址，只能在运行 OpenClaw 的那台机器上打开。🦞",
       "tags": [
-        "github"
+        "group"
       ]
     }
   ],
