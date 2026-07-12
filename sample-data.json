@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-04-26 21:00",
+    "updatedAt": "2026-07-12 21:00",
     "source": "generated from local OpenClaw CLI status, sessions, and transcript files",
     "generatedBy": "scripts/generate_sample_data.py"
   },
@@ -9,198 +9,198 @@
     "primaryMode": "Local OpenClaw activity snapshot"
   },
   "overview": {
-    "todayConversations": 2,
-    "weekConversations": 4,
-    "activeDays": 5,
+    "todayConversations": 1,
+    "weekConversations": 1,
+    "activeDays": 1,
     "topicCount": 12
   },
   "dailyConversations": [
     {
       "day": "Mon",
-      "date": "2026-04-20",
+      "date": "2026-07-06",
       "count": 0
     },
     {
       "day": "Tue",
-      "date": "2026-04-21",
+      "date": "2026-07-07",
       "count": 0
     },
     {
       "day": "Wed",
-      "date": "2026-04-22",
+      "date": "2026-07-08",
       "count": 0
     },
     {
       "day": "Thu",
-      "date": "2026-04-23",
+      "date": "2026-07-09",
       "count": 0
     },
     {
       "day": "Fri",
-      "date": "2026-04-24",
-      "count": 2
+      "date": "2026-07-10",
+      "count": 0
     },
     {
       "day": "Sat",
-      "date": "2026-04-25",
+      "date": "2026-07-11",
       "count": 0
     },
     {
       "day": "Sun",
-      "date": "2026-04-26",
-      "count": 2
+      "date": "2026-07-12",
+      "count": 1
     }
   ],
   "dailyConversations30": [
     {
-      "day": "03-28",
-      "date": "2026-03-28",
+      "day": "06-13",
+      "date": "2026-06-13",
       "count": 0
     },
     {
-      "day": "03-29",
-      "date": "2026-03-29",
+      "day": "06-14",
+      "date": "2026-06-14",
       "count": 0
     },
     {
-      "day": "03-30",
-      "date": "2026-03-30",
+      "day": "06-15",
+      "date": "2026-06-15",
       "count": 0
     },
     {
-      "day": "03-31",
-      "date": "2026-03-31",
+      "day": "06-16",
+      "date": "2026-06-16",
       "count": 0
     },
     {
-      "day": "04-01",
-      "date": "2026-04-01",
+      "day": "06-17",
+      "date": "2026-06-17",
       "count": 0
     },
     {
-      "day": "04-02",
-      "date": "2026-04-02",
+      "day": "06-18",
+      "date": "2026-06-18",
       "count": 0
     },
     {
-      "day": "04-03",
-      "date": "2026-04-03",
+      "day": "06-19",
+      "date": "2026-06-19",
       "count": 0
     },
     {
-      "day": "04-04",
-      "date": "2026-04-04",
+      "day": "06-20",
+      "date": "2026-06-20",
+      "count": 0
+    },
+    {
+      "day": "06-21",
+      "date": "2026-06-21",
+      "count": 0
+    },
+    {
+      "day": "06-22",
+      "date": "2026-06-22",
+      "count": 0
+    },
+    {
+      "day": "06-23",
+      "date": "2026-06-23",
+      "count": 0
+    },
+    {
+      "day": "06-24",
+      "date": "2026-06-24",
+      "count": 0
+    },
+    {
+      "day": "06-25",
+      "date": "2026-06-25",
+      "count": 0
+    },
+    {
+      "day": "06-26",
+      "date": "2026-06-26",
+      "count": 0
+    },
+    {
+      "day": "06-27",
+      "date": "2026-06-27",
+      "count": 0
+    },
+    {
+      "day": "06-28",
+      "date": "2026-06-28",
+      "count": 0
+    },
+    {
+      "day": "06-29",
+      "date": "2026-06-29",
+      "count": 0
+    },
+    {
+      "day": "06-30",
+      "date": "2026-06-30",
+      "count": 0
+    },
+    {
+      "day": "07-01",
+      "date": "2026-07-01",
+      "count": 0
+    },
+    {
+      "day": "07-02",
+      "date": "2026-07-02",
+      "count": 0
+    },
+    {
+      "day": "07-03",
+      "date": "2026-07-03",
+      "count": 0
+    },
+    {
+      "day": "07-04",
+      "date": "2026-07-04",
+      "count": 0
+    },
+    {
+      "day": "07-05",
+      "date": "2026-07-05",
+      "count": 0
+    },
+    {
+      "day": "07-06",
+      "date": "2026-07-06",
+      "count": 0
+    },
+    {
+      "day": "07-07",
+      "date": "2026-07-07",
+      "count": 0
+    },
+    {
+      "day": "07-08",
+      "date": "2026-07-08",
+      "count": 0
+    },
+    {
+      "day": "07-09",
+      "date": "2026-07-09",
+      "count": 0
+    },
+    {
+      "day": "07-10",
+      "date": "2026-07-10",
+      "count": 0
+    },
+    {
+      "day": "07-11",
+      "date": "2026-07-11",
+      "count": 0
+    },
+    {
+      "day": "07-12",
+      "date": "2026-07-12",
       "count": 1
-    },
-    {
-      "day": "04-05",
-      "date": "2026-04-05",
-      "count": 0
-    },
-    {
-      "day": "04-06",
-      "date": "2026-04-06",
-      "count": 0
-    },
-    {
-      "day": "04-07",
-      "date": "2026-04-07",
-      "count": 0
-    },
-    {
-      "day": "04-08",
-      "date": "2026-04-08",
-      "count": 0
-    },
-    {
-      "day": "04-09",
-      "date": "2026-04-09",
-      "count": 0
-    },
-    {
-      "day": "04-10",
-      "date": "2026-04-10",
-      "count": 0
-    },
-    {
-      "day": "04-11",
-      "date": "2026-04-11",
-      "count": 0
-    },
-    {
-      "day": "04-12",
-      "date": "2026-04-12",
-      "count": 1
-    },
-    {
-      "day": "04-13",
-      "date": "2026-04-13",
-      "count": 0
-    },
-    {
-      "day": "04-14",
-      "date": "2026-04-14",
-      "count": 0
-    },
-    {
-      "day": "04-15",
-      "date": "2026-04-15",
-      "count": 0
-    },
-    {
-      "day": "04-16",
-      "date": "2026-04-16",
-      "count": 0
-    },
-    {
-      "day": "04-17",
-      "date": "2026-04-17",
-      "count": 0
-    },
-    {
-      "day": "04-18",
-      "date": "2026-04-18",
-      "count": 0
-    },
-    {
-      "day": "04-19",
-      "date": "2026-04-19",
-      "count": 2
-    },
-    {
-      "day": "04-20",
-      "date": "2026-04-20",
-      "count": 0
-    },
-    {
-      "day": "04-21",
-      "date": "2026-04-21",
-      "count": 0
-    },
-    {
-      "day": "04-22",
-      "date": "2026-04-22",
-      "count": 0
-    },
-    {
-      "day": "04-23",
-      "date": "2026-04-23",
-      "count": 0
-    },
-    {
-      "day": "04-24",
-      "date": "2026-04-24",
-      "count": 2
-    },
-    {
-      "day": "04-25",
-      "date": "2026-04-25",
-      "count": 0
-    },
-    {
-      "day": "04-26",
-      "date": "2026-04-26",
-      "count": 2
     }
   ],
   "modelQuota": [
@@ -212,28 +212,25 @@
       "total": 100,
       "remaining": 97,
       "usedPercent": 3,
-      "resetAt": 1777224301000,
-      "resetLabel": "04-27 01:25",
+      "resetAt": 1783867298000,
+      "resetLabel": "07-12 22:41",
       "plan": "plus ($0.00)"
     },
     {
       "model": "Codex · Week",
       "provider": "openai-codex",
       "windowLabel": "Week",
-      "used": 3,
+      "used": 2,
       "total": 100,
-      "remaining": 97,
-      "usedPercent": 3,
-      "resetAt": 1777446974000,
-      "resetLabel": "04-29 15:16",
+      "remaining": 98,
+      "usedPercent": 2,
+      "resetAt": 1784363023000,
+      "resetLabel": "07-18 16:23",
       "plan": "plus ($0.00)"
     }
   ],
   "keywords": [
-    "直筒裤",
-    "commit",
     "users",
-    "skill",
     "cron",
     "susie",
     "workspace-tech",
@@ -241,7 +238,10 @@
     "run",
     "bash",
     "scripts",
-    "refresh"
+    "refresh",
+    "push.sh.",
+    "changes",
+    "let"
   ],
   "profileTags": [
     "Automation-minded",
@@ -253,12 +253,12 @@
   ],
   "useCases": [
     {
-      "title": "GitHub shipping",
-      "description": "A meaningful slice of the conversation history revolves around repos, commits, and publishing work."
-    },
-    {
       "title": "Workflow automation",
       "description": "OpenClaw is being used to orchestrate scripts, agent flows, and repeatable personal ops."
+    },
+    {
+      "title": "GitHub shipping",
+      "description": "A meaningful slice of the conversation history revolves around repos, commits, and publishing work."
     },
     {
       "title": "Lightweight code delivery",
@@ -271,58 +271,56 @@
       "time": "Today · 21:00",
       "summary": "[cron:48ef5aea-75c8-459c-9593-2b1f4d7a616a openclaw-board-weekly-refresh] In /Users/susie/.openclaw/workspace-tech/openclaw-board, run bash scripts/refresh_a...",
       "tags": [
-        "github",
-        "automation"
-      ]
-    },
-    {
-      "title": "可以",
-      "time": "Today · 20:30",
-      "summary": "可以",
-      "tags": [
-        "coding",
+        "automation",
         "github"
       ]
     },
     {
-      "title": "海外 VPS有便宜的吗",
-      "time": "Apr 24 · 20:47",
-      "summary": "有，而且**便宜到能拿来常驻跑 OpenClaw**。",
+      "title": "[cron:48ef5aea-75c8-459c-9593-2b1f4d7a616a openclaw...",
+      "time": "May 31 · 22:13",
+      "summary": "[cron:48ef5aea-75c8-459c-9593-2b1f4d7a616a openclaw-board-weekly-refresh] In /Users/susie/.openclaw/workspace-tech/openclaw-board, run bash scripts/refresh_a...",
       "tags": [
-        "session"
-      ]
-    },
-    {
-      "title": "只回复 OK",
-      "time": "Apr 24 · 20:42",
-      "summary": "只回复 OK",
-      "tags": [
-        "direct"
+        "automation",
+        "github"
       ]
     },
     {
       "title": "[cron:48ef5aea-75c8-459c-9593-2b1f4d7a616a openclaw...",
-      "time": "Apr 19 · 21:04",
-      "summary": "Weekly refresh finished: data changed, the script updated `sample-data.json`, committed `chore: refresh dashboard data (2026-04-19)`, and pushed to `main` successfully.",
+      "time": "May 24 · 21:33",
+      "summary": "[cron:48ef5aea-75c8-459c-9593-2b1f4d7a616a openclaw-board-weekly-refresh] In /Users/susie/.openclaw/workspace-tech/openclaw-board, run bash scripts/refresh_a...",
       "tags": [
-        "github",
-        "automation"
+        "automation",
+        "github"
       ]
     },
     {
-      "title": "把我的 openclaw 看板地址发给我",
-      "time": "Apr 19 · 17:03",
-      "summary": "看板地址是： http://127.0.0.1:18789/ 这是本机地址，只能在运行 OpenClaw 的那台机器上打开。🦞",
+      "title": "[cron:48ef5aea-75c8-459c-9593-2b1f4d7a616a openclaw...",
+      "time": "May 3 · 21:40",
+      "summary": "[cron:48ef5aea-75c8-459c-9593-2b1f4d7a616a openclaw-board-weekly-refresh] In /Users/susie/.openclaw/workspace-tech/openclaw-board, run bash scripts/refresh_a...",
       "tags": [
-        "group"
+        "automation",
+        "github"
+      ]
+    },
+    {
+      "title": "你直接给我 html 文件",
+      "time": "Apr 28 · 13:26",
+      "summary": "已经直接给你生成好了，文件在： `/Users/susie/.openclaw/workspace-tech/resume.html` 如果你在这个工作区里操作，直接打开 `resume.html` 就行。",
+      "tags": [
+        "coding"
+      ]
+    },
+    {
+      "title": "[cron:48ef5aea-75c8-459c-9593-2b1f4d7a616a openclaw...",
+      "time": "Apr 26 · 21:00",
+      "summary": "Done — refresh succeeded.",
+      "tags": [
+        "automation",
+        "github"
       ]
     }
   ],
   "insights": [
-    {
-      "title": "OpenClaw is part of the weekly workflow",
-      "description": "Active on 5 of the last 30 days, which looks more like a habit than occasional experimentation."
-    },
     {
       "title": "Conversations skew toward building",
       "description": "Recent sessions are less about one-off Q&A and more about turning ideas into scripts, repos, dashboards, and automations."
